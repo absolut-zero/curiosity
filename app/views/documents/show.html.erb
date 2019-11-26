@@ -1,0 +1,23 @@
+
+<%= link_to "All Documents", documents_path  %>
+<div class="container-form">
+<div class="row">
+<div class="col-md-8 offset-md-2 form-content">
+
+<h1>Show page of Document</h1>
+<%= simple_form_for @document, url: document_path(@document) do |f| %>
+  <%= f.error_notification %>
+
+  <%= f.input :name, value: "@document.name" %>
+  <%= f.input :notes, value: "@document.notes" %>
+
+  <%= f.button :submit, class: "btn-primary" %>
+<% end %>
+
+</div>
+</div>
+</div>
+
+
+
+
