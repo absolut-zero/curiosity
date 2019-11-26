@@ -11,7 +11,9 @@ class ConceptGenerator
     @concepts = []
 
     @notes.each do |note|
-      Concept.new(content: note)
+      @concepts << Concept.new(content: note)
     end
+
+    @concepts
   end
 end
