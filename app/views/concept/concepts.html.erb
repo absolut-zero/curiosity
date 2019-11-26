@@ -1,0 +1,12 @@
+<h1>This is the Concepts Page</h1>
+
+<div class ="container">
+  <div class="card-white">
+    <%= @concepts.each do |concept| %>
+      <%= simple_form_for [@document, @concept] do |f| %>
+      <%= f.input :prompt, concept.prompt.nil? ? nil : :value => concept.content %>
+      <%= f.input  :content, :value => concept.content %>
+      <%= f.submit "Finalise concept card", class: "btn btn-primary" %>
+    <%= end %>
+  </div>
+</div>
