@@ -5,6 +5,8 @@
   <% @documents.each do |document| %>
   <li>
     <%= link_to document.name, document_path(document) %>
+    <small>  -- <%= link_to "Delete", document_path(document), method: :delete, data: { confirm: 'Are you sure?' }  %></small>
+
   </li>
 <% end %>
 </ul>
