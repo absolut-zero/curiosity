@@ -1,5 +1,9 @@
 
 <%= link_to "All Documents", documents_path  %>
+<br>
+
+<%= link_to "Delete this Document", document_path(@document), method: :delete, data: { confirm: 'Are you sure?' }  %>
+
 <div class="container-form">
 <div class="row">
 <div class="col-md-8 offset-md-2 form-content">
@@ -17,6 +21,8 @@
 </div>
 </div>
 </div>
+
+
 
 
 
