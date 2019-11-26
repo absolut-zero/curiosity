@@ -1,6 +1,7 @@
 class DocumentsController < ApplicationController
   def index
     @documents = Document.all
+    @document = Document.new
   end
 
   def show
@@ -12,6 +13,7 @@ class DocumentsController < ApplicationController
   end
 
   def create
+    @documents = Document.all
     @document = Document.new(document_params)
     @document.user = current_user
       if @document.save
