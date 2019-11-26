@@ -3,4 +3,5 @@ class Concept < ApplicationRecord
 
   has_many :session_answers
   has_many :tags
+  has_many :concept_tags, dependent: :destroy
 end

@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_26_005049) do
+ActiveRecord::Schema.define(version: 2019_11_26_031901) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "concept_tags", force: :cascade do |t|
+    t.bigint "concept_id"
+    t.bigint "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["concept_id"], name: "index_concept_tags_on_concept_id"
+    t.index ["tag_id"], name: "index_concept_tags_on_tag_id"
+  end
 
   create_table "concepts", force: :cascade do |t|
     t.text "prompt"
@@ -64,10 +73,8 @@ ActiveRecord::Schema.define(version: 2019_11_26_005049) do
 
   create_table "tags", force: :cascade do |t|
     t.string "name"
-    t.bigint "concept_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["concept_id"], name: "index_tags_on_concept_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -84,11 +91,12 @@ ActiveRecord::Schema.define(version: 2019_11_26_005049) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "concept_tags", "concepts"
+  add_foreign_key "concept_tags", "tags"
   add_foreign_key "concepts", "documents"
   add_foreign_key "documents", "folders"
   add_foreign_key "documents", "users"
   add_foreign_key "revision_sessions", "documents"
   add_foreign_key "session_answers", "concepts"
   add_foreign_key "session_answers", "revision_sessions"
-  add_foreign_key "tags", "concepts"
 end
