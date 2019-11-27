@@ -8,10 +8,6 @@ class DocumentsController < ApplicationController
     @document = Document.find(params[:id])
   end
 
-  def new
-    @document = Document.new
-  end
-
   def create
     @documents = Document.all
     @document = Document.new(document_params)

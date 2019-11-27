@@ -1,0 +1,54 @@
+// navmenu
+.vertical-nav {
+  min-width: 17rem;
+  width: 17rem;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s;
+}
+
+.page-content {
+  width: calc(100% - 17rem);
+  margin-left: 19rem;
+  margin-top: 2rem;
+  transition: all 0.4s;
+}
+
+#avatar {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+}
+
+/* for toggle behavior */
+
+#sidebar.active {
+  margin-left: -17rem;
+}
+
+.page-content.active {
+  width: 100%;
+  margin: 16px;
+}
+
+@media (max-width: 768px) {
+  #sidebar {
+    margin-left: -17rem;
+  }
+  #sidebar.active {
+    margin-left: 0;
+  }
+  .page-content {
+    width: 100%;
+    margin: 0;
+  }
+  .page-content.active {
+    margin-left: 17rem;
+    width: calc(100% - 17rem);
+  }
+}
+
+
