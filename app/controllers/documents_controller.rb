@@ -2,6 +2,7 @@ class DocumentsController < ApplicationController
   def index
     @documents = Document.all
     @document = Document.new
+    @folder = Folder.new
   end
 
   def show
@@ -11,6 +12,7 @@ class DocumentsController < ApplicationController
   def create
     @documents = Document.all
     @document = Document.new(document_params)
+    @document.folder = Folder.find(params[:document][:folder])
     @document.user = current_user
       if @document.save
         redirect_to documents_path
@@ -40,7 +42,7 @@ class DocumentsController < ApplicationController
   private
 
   def document_params
-    params.require(:document).permit(:name, :notes, :submitted_at, :end_at, :user, :folder)
+    params.require(:document).permit(:name, :notes, :submitted_at, :end_at)
   end
 
 end
