@@ -2,6 +2,8 @@ class ConceptGenerator
   def self.generate(document)
     @notes = document.notes
     # split based on triple new lines
+    @notes = @notes.gsub("\r\n", "\n").gsub("\r", "\n")
+
     @notes = @notes.split(/\n\n\n/)
     # strip extra whitespace
     @notes.map(&:strip)

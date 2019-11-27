@@ -2,12 +2,12 @@
 
 <div class ="container">
   <div class="card-white">
-    <% @concepts.each do |concept| %>
-      <%= simple_form_for concept do |f| %>
-      <%= f.input :prompt%>
-      <%= f.input  :content, :value => concept.content %>
-      <%= f.submit "Finalise concept card", class: "btn btn-primary" %>
+    <%= simple_form_for @concepts, url: document_concepts_path(@document) do |f| %>
+      <% @concepts.each do |concept| %>
+        <%= f.input :prompt, input_html: { name: 'concept[][prompt]' } %>
+        <%= f.input :content, input_html: { name: 'concept[][content]', value: concept.content } %>
       <% end %>
+      <%= f.submit "Finalise concepts", class: "btn btn-primary" %>
     <% end %>
   </div>
 </div>
