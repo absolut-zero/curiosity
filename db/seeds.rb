@@ -45,6 +45,17 @@ folder = Folder.create!(
   user: user1
 )
 
+business_folder = Folder.create!(
+  name: "Business",
+  user: user1
+)
+
+financial_maths_folder = Folder.create!(
+  name: "Financial Mathematics",
+  user: user1
+)
+
+
 evolution = Document.create!(
   name: "Evolution",
   notes: "Evolution is change in the heritable characteristics of biological populations over successive generations.[1][2] These characteristics are the expressions of genes that are passed on from parent to offspring during reproduction. Different characteristics tend to exist within any given population as a result of mutation, genetic recombination and other sources of genetic variation.[3] Evolution occurs when evolutionary processes such as natural selection (including sexual selection) and genetic drift act on this variation, resulting in certain characteristics becoming more common or rare within a population.[4] It is this process of evolution that has given rise to biodiversity at every level of biological organisation, including the levels of species, individual organisms and molecules.[5][6]
@@ -73,3 +84,150 @@ alleles = Document.create!(
   folder: folder,
   user: user1
 )
+
+business_ethics = Document.create!(
+  name: "Business Ethics",
+  notes: "What the law says managers and directors should do?
+    Corporations act – section(181)
+    o Directors have duty to act in the best interest of the company
+    o Prohibited from using their position to gain a personal advantage o Interpretation – must act in the best interest in the shareholders
+
+
+
+    Reforming capitalism
+    • Creating shared value à the competitiveness of a company and the hdependent
+    o By recognizing and capitalizing on these connections betweeredefine capitalism
+    o Value of sustainability – vital aspect of strategic planning
+
+
+
+    Why should firms operate ethically
+    o The firm relies on healthy systems
+    o The firm will perform better;
+    o And it's the right thing to do",
+  folder: business_folder,
+  user: user1
+)
+
+characteristics_of_major_asset_types = Document.create!(
+  name: "Chapter 4 - Characteristics of Major Asset Types",
+  notes: "4.1 Property
+  → Not a liquid asset
+  → Indivisible (can’t sell just a part of it)
+  → Large unit of investment
+  → Low flexibility
+  → High transaction costs
+  → Unoccupied buildings have expenses
+  → Uniqueness
+  Rent and expenses usually fixed for the
+  length of the lease agreements
+  Cap. app. = Capital appreciation
+  Cap. dep. = Capital depreciation
+  REIT (Listed property unit trusts)
+  Provide liquidity, at an expenses of volatility,
+  loss of control, and extra expenses
+
+
+
+  4.2 Ordinary shares
+  → Divisible
+  → Liquid (for longer com→ Price is volatile
+  → Flexible (can be bough→ Sources of return:
+  Dividends, usually divide 50~70% of total profits
+
+
+
+  4.3 Discount securities – short term
+  → Short term = less than 6 months
+  → No interest
+  → Fixed maturity date
+  → Known face value
+  → Traded in the basis of ‘simple interest’
+  → i.e. Treasury notes and BAB (Bank
+  accepted bills)
+  → Sources of return:
+  Payment on maturity date – price they paid
+  for the notes/bills
+
+
+
+  4.4 Fixed coupon securities
+  → Known face value
+  → Fixed rate of interest
+  → Traded in nominal rate of interest
+  convertible m-thly
+  → High liquidity
+  → Volatile, but not as volatile as shares
+  → Sources of return
+  Pays the present value of the debt now, and
+  receive an equal periodic payment or the
+  interest payment until the maturity date,
+  where also receives the face value amount
+
+
+
+  4.5 Floating rate securities
+  → Floating rate notes (FRN)
+  → Known face value
+  → Fixed maturity date
+  → Interest varies with market rates
+  → More liquid than property but not as liquid
+  as fixed coupon securities
+  → Sources of return:
+  Same as fixed coupon securities, however
+  now the coupon payment or the interest
+  payment depends on the current interest
+  rates traded that particular period. It then
+  also paid out the face value at the maturity
+  date",
+  folder: financial_maths_folder,
+  user: user1
+  )
+
+interest_rates = Document.create!(
+  name: "Chapter 1 - Fundamental Concepts",
+  notes: "1.1 Simple and compound interest
+  Interest is a percentage of the principal
+  deposit that is paid to the people who deposits
+  their money in a bank.
+  → It is an incentive for people to deposit their
+  money in the bank
+  → Encourage people to save money rather
+  than spending it
+
+
+
+  3 things affecting the amount interest paid
+  - Interest rates offered by the bank
+  (denoted as !). Usually as an annual
+  percentage.
+  i.e. 6% per annum
+  - Times left on deposits (denoted as \")
+  - The amount initially invested.
+  Known as Principal (denoted as #)
+  Principal ≠ Capital. Capital
+  usually have a broader meaning
+  than principal.
+
+
+
+  1.2 Present value and discounted value
+  We know that ) An= C(1+i)^n, with
+  assumptions:
+  1. Rate of interests does not depend on
+  the amount invested
+  2. Rate of interest does not vary over the
+  period
+  3. Dealing with integer number of units
+  Present value
+  The amount of money needed to have another
+  amount of money at a future date.
+  Supposedly we wanted to get B amount of
+  money after n time units, with interest rates
+  of i/timeperiods. Then the amount invested
+  (C) or the present value (PV) is
+",
+  folder: financial_maths_folder,
+  user: user1
+  )
+
