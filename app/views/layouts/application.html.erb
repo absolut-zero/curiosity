@@ -10,10 +10,19 @@
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
   <body>
-    <%= render 'shared/navbar' %>
+
+    <%= render 'shared/navmenu' %>
+
+
     <%= render 'shared/flashes' %>
+
+    <div class="page-content" >
+      <button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4 js-navbtn"><i class="fa fa-bars mr-2"></i><small class="text-uppercase font-weight-bold">Toggle Menu</small></button>
+      <br>
     <%= yield %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
+    </div>
+
   </body>
 </html>
