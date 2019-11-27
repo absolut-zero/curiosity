@@ -231,3 +231,72 @@ interest_rates = Document.create!(
   user: user1
   )
 
+concept_business_ethics1 = Concept.create!(
+  prompt: "What the law says managers and directors should do?",
+  content: "Corporations act – section(181)
+    o Directors have duty to act in the best interest of the company
+    o Prohibited from using their position to gain a personal advantage o Interpretation – must act in the best interest in the shareholders",
+    document: business_ethics
+  )
+
+concept_business_ethics2 = Concept.create!(
+  prompt: "Why should firms operate ethically?",
+  content: "o The firm relies on healthy systems;
+            o The firm will perform better;
+            o And it's the right thing to do",
+  document: business_ethics
+  )
+
+concept_alleles1 = Concept.create!(
+  prompt: "What would a relatively good description of an Allele",
+  content: "An allele (/əˈliːl/, from German Allel and Greek ἄλλος állos “other”)[1][2] is a variant form of a given gene,[3] meaning it is one of two or more versions of a known mutation at the same place on a chromosome. It can also refer to different sequence variations for a several-hundred base-pair or more region of the genome that codes for a protein. Alleles can come in different extremes of size. At the lowest possible end one can be the single base choice of an SNP.[4] At the higher end, it can be the sequence variations for the regions of the genome that code for the same protein which can be up to several thousand base-pairs long.[5][6]",
+  document: alleles
+  )
+
+concept_alleles2 = Concept.create!(
+  prompt: "How do you call multicellular organisms that have two sets of chromosomes",
+  content: "They are diploid.",
+  document: alleles
+  )
+
+concept_evolution1 = Concept.create!(
+  prompt: "Who created the theory of Evolution? When did it start?",
+  content: "The scientific theory of evolution by natural selection was conceived independently by Charles Darwin and Alfred Russel Wallace in the mid-19th century.",
+  document: evolution
+  )
+
+concept_evolution2 = Concept.create!(
+  prompt: "Which fields have been influenced by the theories on Evolution",
+  content: "Their discoveries have influenced not just the development of biology but numerous other scientific and industrial fields, including agriculture, medicine and computer science.",
+  document: evolution
+  )
+
+session1 = RevisionSession.create!(
+  scheduled_at: Date.parse("31-12-2020"),
+  document: evolution
+  )
+
+session2 = RevisionSession.create!(
+  scheduled_at: Date.parse("26-01-2020"),
+  document: evolution
+  )
+
+session3 = RevisionSession.create!(
+  scheduled_at: Date.parse("23-02-2021"),
+  document: alleles
+  )
+
+session4 = RevisionSession.create!(
+  scheduled_at: Date.parse("20-03-2021"),
+  document: alleles
+  )
+
+session5 = RevisionSession.create!(
+  scheduled_at: Date.parse("12-05-2020"),
+  document: business_ethics
+  )
+
+session5 = RevisionSession.create!(
+  scheduled_at: Date.parse("02-07-2020"),
+  document: business_ethics
+  )
