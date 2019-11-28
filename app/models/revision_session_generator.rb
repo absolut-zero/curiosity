@@ -5,17 +5,17 @@ class RevisionSessionGenerator
       concepts << tag.concepts
     end
     concepts = concepts.flatten.uniq
-    revision_session = RevisionSession.create(user: user, scheduled_at: scheduled_at)
+    revision_session = RevisionSession.create!(user: user, scheduled_at: scheduled_at)
     concepts.each do |concept|
-      RevisionSessionConcept.create(concept: concept, revision_session: revision_session)
+      RevisionSessionConcept.create!(concept: concept, revision_session: revision_session)
     end
   end
 
   def self.generate_from_document(document, user, scheduled_at = nil)
     concepts = document.concepts
-    revision_session = RevisionSession.create(user: user, scheduled_at: scheduled_at)
+    revision_session = RevisionSession.create!(user: user, scheduled_at: scheduled_at)
     concepts.each do |concept|
-      RevisionSessionConcept.create(concept: concept, revision_session: revision_session)
+      RevisionSessionConcept.create!(concept: concept, revision_session: revision_session)
     end
   end
 end
