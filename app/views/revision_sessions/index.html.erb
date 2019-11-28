@@ -1,0 +1,52 @@
+<h1>RevisionSessions#index</h1>
+<p>Find me in app/views/revision_sessions/index.html.erb</p>
+
+<% if user_signed_in? %>
+<p>Hi <%= current_user.first_name %>, this is your Schedule Home Page</p>
+
+<div class="table-responsive-md">
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th style="width: 20%" scope="col">Document Name</th>
+      <th style="width: 20%" scope="col">Tags</th>
+      <th style="width: 20%" scope="col">Retention</th>
+      <th style="width: 20%" scope="col">Scheduled for</th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+<% RevisionSession.where(user: current_user).where.not(scheduled_at: nil).order(scheduled_at: :asc).each do |session| %>
+
+    <tr>
+      <td><%= session.revision_session_concepts.first.concept.document.name %></td>
+      <% tags = [] %>
+      <% session.revision_session_concepts.each { |con| tags << con.concept.tags } %>
+      <% tags = tags.flatten.uniq %>
+      <% tags_print = "" %>
+      <% tags.each { |tag| tags_print += "#{tag.name} " } %>
+      <td><%= tags_print %></td>
+      <td>xx%</td>
+      <td><% days_left =(Date.new((session.scheduled_at.year), (session.scheduled_at.month), (session.scheduled_at.day)) - Date.today).to_i %>
+        <% if days_left == 0 %>
+          Today
+        <%  elsif days_left == 1 %>
+          Tomorrow
+        <%  elsif days_left == -1 %>
+          Yesterday
+        <%  elsif days_left < -1 %>
+          <%= days_left %> days ago
+        <% else %>
+          In <%= days_left %> days
+        <% end %>
+      </td>
+    </tr>
+
+<% end %>
+
+  </tbody>
+
+</table>
+</div>
+<% end %>
