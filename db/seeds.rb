@@ -12,9 +12,6 @@ SessionAnswer.destroy_all
 p "Clearing all revision sessions..."
 RevisionSession.destroy_all
 
-p "Clearing all concept tags..."
-ConceptTag.destroy_all
-
 p "Clearing all tags..."
 Tag.destroy_all
 
@@ -36,6 +33,14 @@ user1 = User.create!(
   first_name: "User",
   last_name: "User",
   email: "user@user.com",
+  password: "password",
+  password_confirmation: "password"
+)
+
+user2 = User.create!(
+  first_name: "Student",
+  last_name: "Student",
+  email: "student@student.com",
   password: "password",
   password_confirmation: "password"
 )
@@ -273,30 +278,58 @@ concept_evolution2 = Concept.create!(
 
 session1 = RevisionSession.create!(
   scheduled_at: Date.parse("31-12-2020"),
-  document: evolution
+  user: user1
   )
 
 session2 = RevisionSession.create!(
   scheduled_at: Date.parse("26-01-2020"),
-  document: evolution
+  user: user2
   )
 
 session3 = RevisionSession.create!(
   scheduled_at: Date.parse("23-02-2021"),
-  document: alleles
+  user: user1
   )
 
 session4 = RevisionSession.create!(
   scheduled_at: Date.parse("20-03-2021"),
-  document: alleles
+  user: user1
   )
 
 session5 = RevisionSession.create!(
   scheduled_at: Date.parse("12-05-2020"),
-  document: business_ethics
+  user: user2
   )
 
 session5 = RevisionSession.create!(
   scheduled_at: Date.parse("02-07-2020"),
-  document: business_ethics
+  user: user2
+  )
+
+tag1 = Tag.create!(
+  name: "biology"
+  )
+
+tag2 = Tag.create!(
+  name: "capitalism"
+  )
+
+tag3 = Tag.create!(
+  name: "genetic"
+  )
+
+tag4 = Tag.create!(
+  name: "law"
+  )
+
+tag5 = Tag.create!(
+  name: "ethics"
+  )
+
+tag6 = Tag.create!(
+  name: "finance"
+  )
+
+tag7 = Tag.create!(
+  name: "genome"
   )
