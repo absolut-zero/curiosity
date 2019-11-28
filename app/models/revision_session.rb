@@ -1,5 +1,4 @@
 class RevisionSession < ApplicationRecord
-  belongs_to :document
-
+  belongs_to :user
   has_many :session_answers
 end
