@@ -1,4 +1,4 @@
 class ConceptTag < ApplicationRecord
-  has_many :tags
-  has_many :concepts
+  belongs_to :tag
+  belongs_to :concept
 end
