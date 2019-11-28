@@ -1,6 +1,9 @@
 class RevisionSessionGenerator
   def self.generate_from_tags(tag_array)
-    concepts = Concept.where(document: document)
+    tag_array.each do |tag|
+      concepts = Concept.where(tag: tag)
+    end
+
     revision_session = RevisionSession.create(user: current_user, scheduled_at: scheduled_at)
     concepts.each do |concept|
       RevisionSessionConcept.create(concept: concept, revision_session: revision_session)
