@@ -1,4 +1,3 @@
 class SessionAnswer < ApplicationRecord
-  belongs_to :revision_session
-  belongs_to :concept
+  belongs_to :revision_session_concepts
 end
