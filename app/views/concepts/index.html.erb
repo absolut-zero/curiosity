@@ -1,15 +1,15 @@
 <h1>This is the Concepts Page</h1>
 
 <div class ="container">
-  <div class="card-white">
     <%= simple_form_for @concepts, url: document_concepts_path(@document) do |f| %>
       <% @concepts.each do |concept| %>
+  <div class="card-white">
         <%= f.input :prompt, input_html: { name: 'concept[][prompt]' } %>
         <%= f.input :content, input_html: { name: 'concept[][content]', value: concept.content } %>
+  </div>
       <% end %>
       <%= f.submit "Finalise concepts", class: "btn btn-primary" %>
     <% end %>
-  </div>
 </div>
 
 <!-- concept.prompt.nil? ? nil : :value => concept.content  -->
