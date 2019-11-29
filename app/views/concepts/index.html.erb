@@ -6,6 +6,12 @@
       <% @concepts.each do |concept| %>
         <%= f.input :prompt, input_html: { name: 'concept[][prompt]' } %>
         <%= f.input :content, input_html: { name: 'concept[][content]', value: concept.content } %>
+        <select class="js-input-tags" name="concept[][tags][]" multiple>
+          <% Tag.all.each do |tag| %>\
+          <option value="<%= tag.id %>"><%= tag.name %></option>
+          <% end %>
+        </select>
+
       <% end %>
       <%= f.submit "Finalise concepts", class: "btn btn-primary" %>
     <% end %>
@@ -13,3 +19,4 @@
 </div>
 
 <!-- concept.prompt.nil? ? nil : :value => concept.content  -->
+

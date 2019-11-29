@@ -1,5 +1,47 @@
+<% if user_signed_in? %>
+<p>Hi <%= current_user.first_name %>, this is your Schedule Home Page</p>
 
+<div class="table-responsive-md">
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th style="width: 20%" scope="col">Document Name</th>
+      <th style="width: 20%" scope="col">Tags</th>
+      <th style="width: 20%" scope="col">Performance Score</th>
+      <th style="width: 20%" scope="col">Scheduled for</th>
+      <th style="width: 20%" scope="col">When?</th>
+    </tr>
+  </thead>
 
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+  <tbody>
+
+<% RevisionSession.all.each do |session| %>
+
+    <tr>
+      <td></td>
+      <td>Tag, Tag, Tag</td>
+      <td>xx%</td>
+      <td><%= session.scheduled_at.strftime('%a %d %b %Y') %></td>
+      <td><% days_left =(Date.new((session.scheduled_at.year), (session.scheduled_at.month), (session.scheduled_at.day)) - Date.today).to_i %>
+        <% if days_left == 0 %>
+          Today
+        <%  elsif days_left == 1 %>
+          Tomorrow
+        <%  elsif days_left == -1 %>
+          Yesterday
+        <%  elsif days_left < -1 %>
+          <%= days_left %> days ago
+        <% else %>
+          In <%= days_left %> days
+        <% end %>
+      </td>
+    </tr>
+
+<% end %>
+
+  </tbody>
+
+</table>
+</div>
+<% end %>
 
