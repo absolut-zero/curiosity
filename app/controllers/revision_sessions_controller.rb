@@ -19,4 +19,5 @@ class RevisionSessionsController < ApplicationController
   def answers
 
   end
+
 end

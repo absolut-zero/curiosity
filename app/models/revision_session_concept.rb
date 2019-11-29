@@ -3,4 +3,5 @@ class RevisionSessionConcept < ApplicationRecord
   belongs_to :concept
 
   has_one :session_answer
+
 end

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   resources :revision_sessions, only: [:index, :show] do
     resources :session_answers, only: [:index, :create]
   end

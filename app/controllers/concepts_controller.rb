@@ -1,5 +1,10 @@
 require_relative '../models/concept_generator'
 class ConceptsController < ApplicationController
+
+  def params
+    request.parameters
+  end
+
   def index
     @document = Document.find(params[:document_id])
     @concepts = ConceptGenerator.generate(@document)
@@ -11,13 +16,23 @@ class ConceptsController < ApplicationController
   end
 
   def create
-    # @concept = Concept.new(concept_params)
-    # @concept.save
-
     params[:concept].each do |concept|
-      @concept = Concept.new(prompt: concept[:prompt], content: concept[:content])
-      @concept.document_id = params[:document_id]
-      @concept.save
+      new_concept = Concept.new(prompt: concept[:prompt], content: concept[:content])
+
+      if concept["tags"]
+        tags = []
+        concept["tags"].each do |tag|
+          begin
+            tags << Tag.find(Integer(tag))
+          rescue ArgumentError, TypeError
+            tags << Tag.create!(name: tag)
+          end
+        end
+      end
+
+      new_concept.tags = tags
+      new_concept.document_id = params[:document_id]
+      new_concept.save
     end
     redirect_to documents_path
   end
@@ -31,11 +46,9 @@ class ConceptsController < ApplicationController
     end
   end
 
-  private
+  # private
 
-  def concept_params
-  #   params.require(:concept).each do |concept|
-  #     concept.permit(:prompt, :content)
-  #   end
-  end
+  # def concept_params
+  #   params.require(:concept).permit(:tags => [])
+  # end
 end

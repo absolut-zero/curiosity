@@ -40,6 +40,7 @@ user = User.create!(
   password_confirmation: "password"
 )
 
+
 llama = User.create!(
   first_name: "Larry",
   last_name: "da Llama",
@@ -57,6 +58,7 @@ student = User.create!(
 )
 
 p "Creating new folders..."
+
 
 fol_llama_101 = Folder.create!(
   name: "Llama 101",
@@ -190,6 +192,7 @@ doc_spitting = Document.create!(
   folder: fol_llama_101,
   user: llama
 )
+
 
 doc_evolution = Document.create!(
   name: "Evolution",
@@ -542,11 +545,13 @@ con_evolution2.tags << [tag_genome, tag_genetics, tag_biology]
 
 p "Creating new revision sessions from documents..."
 
+
 RevisionSessionGenerator.generate_from_document(doc_spitting, llama, Date.parse("29-11-2019"))
 
 RevisionSessionGenerator.generate_from_document(doc_girls, llama, Date.parse("30-11-2019"))
 
 RevisionSessionGenerator.generate_from_document(doc_vc, llama, Date.parse("02-12-2019"))
+
 
 RevisionSessionGenerator.generate_from_document(doc_alleles, user, Date.parse("29-11-2019"))
 
