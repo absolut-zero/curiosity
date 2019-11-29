@@ -102,63 +102,63 @@ p "Creating new documents..."
 
 doc_human_language = Document.create!(
   name: "How to speak to Hoomans",
-  notes: "",
+  notes: "1",
   folder: fol_llama_101,
   user: llama
 )
 
 doc_grass = Document.create!(
   name: "Weed(s)",
-  notes: "",
+  notes: "1",
   folder: fol_llama_101,
   user: llama
 )
 
 doc_driving = Document.create!(
   name: "How to drive",
-  notes: "",
+  notes: "1",
   folder: fol_llama_101,
   user: llama
 )
 
 doc_vc = Document.create!(
   name: "Asking VCs 4 Moneyz",
-  notes: "",
+  notes: "1",
   folder: fol_llama_does_startups,
   user: llama
 )
 
 doc_bc_ai = Document.create!(
   name: "Blockchain AI 101",
-  notes: "",
+  notes: "1",
   folder: fol_llama_does_startups,
   user: llama
 )
 
 doc_good_grass = Document.create!(
   name: "Finding good grass",
-  notes: "",
+  notes: "1",
   folder: fol_llama_does_love,
   user: llama
 )
 
 doc_girls = Document.create!(
   name: "Finding good Girl(s)",
-  notes: "",
+  notes: "1",
   folder: fol_llama_does_love,
   user: llama
 )
 
 doc_friends = Document.create!(
   name: "Central Perk Ted Talk",
-  notes: "",
+  notes: "1",
   folder: fol_llama_does_friends,
   user: llama
 )
 
 doc_how_you = Document.create!(
   name: "How you doin'?",
-  notes: "",
+  notes: "1",
   folder: fol_llama_does_friends,
   user: llama
 )
