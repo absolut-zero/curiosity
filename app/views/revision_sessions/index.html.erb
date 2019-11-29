@@ -12,6 +12,7 @@
       <th style="width: 20%" scope="col">Tags</th>
       <th style="width: 20%" scope="col">Retention</th>
       <th style="width: 20%" scope="col">Scheduled for</th>
+      <th style="width: 20%" scope="col"></th>
     </tr>
   </thead>
 
@@ -41,6 +42,8 @@
           In <%= days_left %> days
         <% end %>
       </td>
+      <td><%= link_to "Start Revision", revision_session_path(session) %></td>
+
     </tr>
 
 <% end %>

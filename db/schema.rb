@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_28_040232) do
+ActiveRecord::Schema.define(version: 2019_11_29_012318) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,6 +79,7 @@ ActiveRecord::Schema.define(version: 2019_11_28_040232) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "revision_session_concept_id"
+    t.text "response"
     t.index ["concept_id"], name: "index_session_answers_on_concept_id"
     t.index ["revision_session_concept_id"], name: "index_session_answers_on_revision_session_concept_id"
   end

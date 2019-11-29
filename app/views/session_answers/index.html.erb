@@ -1,0 +1,14 @@
+<h1>Answers!</h1>
+
+<div class ="container">
+  <% @revision_session_concepts.each do |session_concept| %>
+    <div class="card-white">
+      <h4><%= session_concept.concept.prompt %></h4>
+      <p><%= simple_format(session_concept.concept.content) %></p>
+      <h6>Your Answer:</h6>
+      <p><%= simple_format(session_concept.session_answer.response) %></p>
+    </div>
+  <% end %>
+</div>
+
+<!-- concept.prompt.nil? ? nil : :value => concept.content  -->
