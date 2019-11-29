@@ -1,0 +1,16 @@
+<h1>Revise!</h1>
+
+<div class ="container">
+  <%= simple_form_for @session_answers, url: revision_session_session_answers_path(@revision_session) do |f| %>
+    <% @revision_session_concepts.each do |session_concept| %>
+      <div class="card-white">
+        <h4><%= session_concept.concept.prompt %></h4>
+        <%= f.input :response, input_html: { name: 'session_answer[][response]' } %>
+        <%= f.input :session_concept_id, :as => :hidden, input_html: { name: 'session_answer[][session_concept_id]', value: session_concept.id } %>
+      </div>
+    <% end %>
+    <%= f.submit "Submit Answers", class: "btn btn-primary" %>
+  <% end %>
+</div>
+
+<!-- concept.prompt.nil? ? nil : :value => concept.content  -->
