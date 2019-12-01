@@ -21,7 +21,10 @@
 <% RevisionSession.where(user: current_user).where.not(scheduled_at: nil).order(scheduled_at: :asc).each do |session| %>
 
     <tr>
-      <td><%= session.revision_session_concepts.first.concept.document.name %></td>
+      <td>
+        <%= link_to "Delete ", revision_session_path(session), method: :delete, data: { confirm: 'Are you sure?' }%>
+        <%= session.revision_session_concepts.first.concept.document.name %>
+      </td>
       <% tags = [] %>
       <% session.revision_session_concepts.each { |con| tags << con.concept.tags } %>
       <% tags = tags.flatten.uniq %>
@@ -42,8 +45,7 @@
           In <%= days_left %> days
         <% end %>
       </td>
-      <td><%= link_to "Start Revision", revision_session_path(session) %></td>
-
+      <td><%= link_to "Start Revision", revision_session_path(session) %></td
     </tr>
 
 <% end %>
