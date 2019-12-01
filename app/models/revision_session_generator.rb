@@ -9,6 +9,7 @@ class RevisionSessionGenerator
     concepts.each do |concept|
       RevisionSessionConcept.create!(concept: concept, revision_session: revision_session)
     end
+    revision_session
   end
 
   def self.generate_from_document(document, user, scheduled_at = nil)
@@ -17,5 +18,6 @@ class RevisionSessionGenerator
     concepts.each do |concept|
       RevisionSessionConcept.create!(concept: concept, revision_session: revision_session)
     end
+    revision_session
   end
 end

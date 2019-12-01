@@ -14,7 +14,7 @@
 
   <%= f.input :name, value: "@document.name" %>
   <%= f.input :notes, value: "@document.notes" %>
-
+  <%= f.input :end_at, as: :string, required: false, input_html: {class: "datepicker"} %>
   <%= f.button :submit, class: "btn-primary" %>
 <% end %>
 <%= link_to "Create Concepts", document_concepts_path(@document), { :class=>"btn btn-primary" } %>

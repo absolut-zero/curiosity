@@ -18,6 +18,7 @@ gem 'uglifier'
 gem 'webpacker'
 
 gem 'coffee-rails'
+gem 'flatpickr', '~> 4.5', '>= 4.5.7.0'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
