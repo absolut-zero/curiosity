@@ -4,10 +4,21 @@ class RevisionSessionsController < ApplicationController
   end
 
   def create_from_doc
-    # RevisionSessionGenerator.generate_from_document(Document.find())
+    @document = Document.find(params[:id])
+    if @document.concepts
+      redirect_to revision_session_path(RevisionSessionGenerator.generate_from_document(@document, current_user))
+    else
+      redirect_to document_path(@document)
+    end
   end
 
   def create_from_tag
+    @tag = Tag.find(params[:id])
+    if @tag.concepts
+      redirect_to revision_session_path(RevisionSessionGenerator.generate_from_tags([@tag], current_user))
+    else
+      redirect_to tags_path
+    end
   end
 
   def show

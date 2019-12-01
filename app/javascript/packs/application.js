@@ -1,6 +1,7 @@
 import "bootstrap";
 import $ from 'jquery';
 import "selectize"
+import "../plugins/flatpickr"
 
 import { toggleNavmenu } from '../plugins/navmenu';
 toggleNavmenu();
@@ -18,4 +19,5 @@ function addAutoResize() {
 }
 
 addAutoResize();
+
 

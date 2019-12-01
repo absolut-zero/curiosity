@@ -18,10 +18,9 @@ class ConceptsController < ApplicationController
   def create
     params[:concept].each do |concept|
       new_concept = Concept.new(prompt: concept[:prompt], content: concept[:content])
-
-      if concept["tags"]
-        tags = []
-        concept["tags"].each do |tag|
+      tags = []
+      if concept[:tags]
+        concept[:tags].each do |tag|
           begin
             tags << Tag.find(Integer(tag))
           rescue ArgumentError, TypeError
@@ -29,7 +28,6 @@ class ConceptsController < ApplicationController
           end
         end
       end
-
       new_concept.tags = tags
       new_concept.document_id = params[:document_id]
       new_concept.save
