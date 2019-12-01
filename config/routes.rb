@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   resources :tags, only: [:index, :destroy]
 
-  resources :revision_sessions, only: [:index, :show] do
+  resources :revision_sessions, only: [:index, :show, :destroy] do
     resources :session_answers, only: [:index, :create]
   end
 
