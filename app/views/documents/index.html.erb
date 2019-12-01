@@ -5,9 +5,9 @@
   <% @documents.each do |document| %>
   <li>
     <h4><%= link_to document.name, document_path(document) %></h4>
-    <p><small><%= link_to "Delete", document_path(document), method: :delete, data: { confirm: 'Are you sure?' } %> | <%= link_to "Revise", revision_sessions_doc_path(document), method: :post %>
+    <p><small><%= link_to "Delete", document_path(document), method: :delete, data: { confirm: 'Are you sure?' } %>
     <% unless document.concepts.length.zero? %>
-       | <%= link_to "Delete Concepts", document_concepts_path(document), method: :delete, data: { confirm: 'Are you sure?' } %>
+       | <%= link_to "Revise", revision_sessions_doc_path(document), method: :post %> | <%= link_to "Delete Concepts", document_concepts_path(document), method: :delete, data: { confirm: 'Are you sure?' } %>
     <% end %>
     </small></p>
   </li>
