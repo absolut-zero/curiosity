@@ -11,11 +11,13 @@ Rails.application.routes.draw do
 
   devise_for :users
 
+  delete 'documents/:id/concepts/', to: 'documents#destroy_concepts', as: :document_concepts
+
   root to: 'pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :folders, only: [:create]
 
-  resources :documents, only: [:index, :show, :create, :update] do
+  resources :documents, only: [:index, :show, :create, :update, :destroy] do
     resources :concepts, only: [:index, :create, :update]
   end
 end
