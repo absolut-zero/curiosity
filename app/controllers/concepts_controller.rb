@@ -1,4 +1,5 @@
 require_relative '../models/concept_generator'
+require 'pry'
 class ConceptsController < ApplicationController
 
   def params

@@ -8,6 +8,7 @@ class ConceptGenerator
     # strip extra whitespace
     @notes.map(&:strip)
     # remove empty strings
+
     @notes.select! { |note| note.length.positive? }
 
     @concepts = []

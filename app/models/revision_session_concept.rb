@@ -2,6 +2,5 @@ class RevisionSessionConcept < ApplicationRecord
   belongs_to :revision_session
   belongs_to :concept
 
-  has_one :session_answer
-
+  has_one :session_answer, dependent: :destroy
 end

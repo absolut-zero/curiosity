@@ -4,10 +4,12 @@
 <ul>
   <% @documents.each do |document| %>
   <li>
-    <%= link_to document.name, document_path(document) %>
-    <small>  -- <%= link_to "Delete", document_path(document), method: :delete, data: { confirm: 'Are you sure?' }  %></small>
-
-    <small>  -- <%= link_to "Revise", revision_sessions_doc_path(document), method: :post %></small>
+    <h4><%= link_to document.name, document_path(document) %></h4>
+    <p><small><%= link_to "Delete", document_path(document), method: :delete, data: { confirm: 'Are you sure?' } %> | <%= link_to "Revise", revision_sessions_doc_path(document), method: :post %>
+    <% unless document.concepts.length.zero? %>
+       | <%= link_to "Delete Concepts", document_concepts_path(document), method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% end %>
+    </small></p>
   </li>
 <% end %>
 </ul>
