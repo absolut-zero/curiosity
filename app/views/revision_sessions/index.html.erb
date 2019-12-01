@@ -15,9 +15,9 @@
       <th style="width: 20%" scope="col"></th>
     </tr>
   </thead>
-
+<% unless RevisionSession.where(user: current_user).where.not(scheduled_at: nil).length.zero? %>
   <tbody>
-
+<% raise %>
 <% RevisionSession.where(user: current_user).where.not(scheduled_at: nil).order(scheduled_at: :asc).each do |session| %>
 
     <tr>
@@ -47,8 +47,8 @@
     </tr>
 
 <% end %>
-
   </tbody>
+<% end %>
 
 </table>
 </div>
