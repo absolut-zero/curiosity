@@ -9,7 +9,8 @@ class ConceptsController < ApplicationController
   def index
     @document = Document.find(params[:document_id])
     @concepts = ConceptGenerator.generate(@document)
-
+    @document.submitted_at = Date.today
+    @document.save
   end
 
   def show
@@ -17,6 +18,7 @@ class ConceptsController < ApplicationController
   end
 
   def create
+    @document = Document.find(params[:document_id])
     params[:concept].each do |concept|
       new_concept = Concept.new(prompt: concept[:prompt], content: concept[:content])
       tags = []
@@ -33,6 +35,7 @@ class ConceptsController < ApplicationController
       new_concept.document_id = params[:document_id]
       new_concept.save
     end
+    RevisionSessionGenerator.create_spaced_repitition(@document, current_user)
     redirect_to documents_path
   end
 
