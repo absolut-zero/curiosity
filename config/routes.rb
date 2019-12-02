@@ -5,8 +5,9 @@ Rails.application.routes.draw do
 
   resources :tags, only: [:index, :destroy]
 
-  resources :revision_sessions, only: [:index, :show] do
+  resources :revision_sessions, only: [:index, :show, :destroy] do
     resources :session_answers, only: [:index, :create]
+    put '/session_answers', to: 'session_answers#update'
   end
 
   devise_for :users
@@ -17,7 +18,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :folders, only: [:create]
 
-  resources :documents, only: [:index, :show, :create, :update, :destroy] do
+  resources :documents, only: [:index, :show, :new, :create, :update, :destroy] do
     resources :concepts, only: [:index, :create, :update]
   end
 
