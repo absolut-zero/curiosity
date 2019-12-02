@@ -13,6 +13,9 @@
     </div>
   <% end %>
   <%= f.submit "Finish Session", class: "btn btn-primary" %>
+  <% if @next_session %>
+    <%= f.button :button, 'Save & Continue Revision', type: 'submit', name: "save_and_continue", value: "#{@next_session.id}" %>
+  <% end %>
   <% end %>
 </div>
 
