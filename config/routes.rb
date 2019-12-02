@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   resources :revision_sessions, only: [:index, :show, :destroy] do
     resources :session_answers, only: [:index, :create]
+    put '/session_answers', to: 'session_answers#update'
   end
 
   devise_for :users
