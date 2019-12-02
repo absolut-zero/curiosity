@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :folders, only: [:create]
 
-  resources :documents, only: [:index, :show, :create, :update, :destroy] do
+  resources :documents, only: [:index, :show, :new, :create, :update, :destroy] do
     resources :concepts, only: [:index, :create, :update]
   end
 end
