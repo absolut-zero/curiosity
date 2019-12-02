@@ -28,7 +28,9 @@ class RevisionSessionsController < ApplicationController
     @revision_session_concepts = @revision_session.revision_session_concepts
   end
 
-  def answers
-
+  def destroy
+    @revision_session = RevisionSession.find(params[:id])
+    @revision_session.destroy
+    redirect_to revision_sessions_path
   end
 end
