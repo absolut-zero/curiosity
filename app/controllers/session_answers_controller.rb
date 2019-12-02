@@ -10,4 +10,13 @@ class SessionAnswersController < ApplicationController
     end
     redirect_to revision_session_session_answers_path(RevisionSession.find(params[:revision_session_id]))
   end
+
+  def update
+    params[:session_answers].each do |session_answer|
+      @answer = SessionAnswer.find(session_answer[0])
+      @answer.correct = session_answer[1][:correct]
+      @answer.save
+    end
+    redirect_to revision_sessions_path
+  end
 end
