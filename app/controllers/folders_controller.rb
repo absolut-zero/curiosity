@@ -1,4 +1,6 @@
 class FoldersController < ApplicationController
+  def
+
   def create
     @folder = Folder.new(folder_params)
     @folder.user = current_user

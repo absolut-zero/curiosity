@@ -1,0 +1,24 @@
+.outer-container {
+  width: 100%;
+}
+
+.filter-container {
+  min-height: 160px;
+  margin: 20px auto;
+  padding: 20px;
+  text-align: center;
+  background-color: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 4px;
+}
+
+.filter-inner-container {
+  display: flex;
+  justify-content: space-between;
+  align-content: end;
+}
+
+.btn-search {
+  height: 36px;
+  margin-top: 32px;
+}
