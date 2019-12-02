@@ -1,13 +1,18 @@
 <h1>Answers!</h1>
 
 <div class ="container">
+  <%= simple_form_for :session_answers, method: :put, url: revision_session_session_answers_path(@revision_session) do |f| %>
   <% @revision_session_concepts.each do |session_concept| %>
     <div class="card-white">
       <h4><%= session_concept.concept.prompt %></h4>
       <p><%= simple_format(session_concept.concept.content) %></p>
       <h6>Your Answer:</h6>
       <p><%= simple_format(session_concept.session_answer.response) %></p>
+      <%= radio_button("session_answers[#{session_concept.session_answer.id}]", "correct", "true") %>
+      <%= radio_button("session_answers[#{session_concept.session_answer.id}]", "correct", "false") %>
     </div>
+  <% end %>
+  <%= f.submit "Finish Session", class: "btn btn-primary" %>
   <% end %>
 </div>
 
