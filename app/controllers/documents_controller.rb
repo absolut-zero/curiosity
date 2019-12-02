@@ -1,6 +1,6 @@
 class DocumentsController < ApplicationController
   def index
-    @documents = Document.all
+    @documents = Document.where(user: current_user)
     @document = Document.new
     @folder = Folder.new
   end

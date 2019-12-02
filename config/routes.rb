@@ -21,4 +21,6 @@ Rails.application.routes.draw do
   resources :documents, only: [:index, :show, :new, :create, :update, :destroy] do
     resources :concepts, only: [:index, :create, :update]
   end
+
+  get 'search', to: 'concepts#search'
 end
