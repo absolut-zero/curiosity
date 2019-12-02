@@ -5,7 +5,7 @@ class PagesController < ApplicationController
     @documents_all = Document.where(user: current_user)
     @drafts = @documents_all.select { |doc| doc.concepts.length.zero? }
 
-    all_revision_sessions_with_date = RevisionSession.where(user: current_user).where("scheduled_at <= ?", Date.today.at_beginning_of_day).order(scheduled_at: :asc)
+    all_revision_sessions_with_date = RevisionSession.where(user: current_user).where("scheduled_at <= ?", Date.today.at_beginning_of_day).where(completed_at: nil).order(scheduled_at: :asc)
     @revision_sessions = all_revision_sessions_with_date.select { |session| !session.revision_session_concepts.length.zero? }
   end
 end

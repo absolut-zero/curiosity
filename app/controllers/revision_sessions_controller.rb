@@ -1,6 +1,6 @@
 class RevisionSessionsController < ApplicationController
   def index
-    all_revision_sessions_with_date = RevisionSession.where(user: current_user).where.not(scheduled_at: nil).order(scheduled_at: :asc)
+    all_revision_sessions_with_date = RevisionSession.where(user: current_user).where.not(scheduled_at: nil).where(completed_at: nil).order(scheduled_at: :asc)
     @revision_sessions = all_revision_sessions_with_date.select { |session| !session.revision_session_concepts.length.zero? }
   end
 
