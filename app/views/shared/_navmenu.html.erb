@@ -14,17 +14,15 @@
  <!--      <a href="" class="nav-link text-dark font-italic dropdown-toggle collapsible" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> -->
 
 
-      <img src="https://spectator.imgix.net/content/uploads/2016/05/iStock_000076568217_Large.jpg?auto=compress,enhance,format&crop=faces,entropy,edges&fit=crop&w=620&h=413" alt="..." width="100" class="mr-3 rounded-circle img-thumbnail" id="avatar">
+      <img src="https://spectator.imgix.net/content/uploads/2016/05/iStock_000076568217_Large.jpg?auto=compress,enhance,format&crop=faces,entropy,edges&fit=crop&w=620&h=413" alt="..." width="100" class="mr-3 rounded-circle img-thumbnail d-inline" id="avatar">
 
-      <div class="media-body">
-        <a href="" class="nav-link text-dark font-italic dropdown-toggle collapsible" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-        <h4 class="m-0"><%= current_user.first_name %></h4></a>
+        <h4 class="m-0 d-inline"><%= current_user.first_name %>  </h4>
 
           <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
             <%= link_to "Edit Profile", edit_user_registration_path, class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
-      </div>
+          <a href="" class="nav-link collapsible d-inline" role="button" data-toggle="dropdown"><i class="fas fa-bars circle-icon"></i></a>
 
 </div>
 
@@ -46,7 +44,7 @@
   <ul class="nav flex-column mb-0">
      <li class="nav-item">
       <%= link_to revision_sessions_path, { :class=>"nav-link font-italic" } do %>
-        <i class="fas fa-glasses mr-3 fa-fw" ></i> My Revisions
+        <i class="fas fa-glasses mr-3 fa-fw" ></i> My Revisions Schedule
       <% end %>
     </li>
     <li class="nav-item">
@@ -64,25 +62,26 @@
         <i class="fas fa-tag mr-3 fa-fw" ></i> Tags
       <% end %>
     </li>
-    <li class="nav-item">
-      <%= link_to revision_sessions_path, { :class=>"nav-link font-italic" } do %>
-        <i class="fas fa-calendar-alt mr-3 fa-fw" ></i> Schedule
-      <% end %>
-    </li>
-
   </ul>
-  <p class="text-gray font-weight-bold text-uppercase px-3 small py-4 mb-0">My Folders</p>
+  <p class="text-gray font-weight-bold text-uppercase px-3 small py-4 mb-0">My Documents</p>
 
   <ul class="nav flex-column mb-0">
     <li class="nav-item folder-section">
       <a href="<%= documents_path %>" class="nav-link">See all my documents</a>
     </li>
 
+    <li class="nav-item folder-section">
+      <% Document.where(folder_id: nil).each do |document| %>
+        <a class="nav-link" href="<%= document_path(document) %>"><%= document.name  %></a>
+      <% end %>
+    </li>
+
     <!-- Creating a nav item per folder -->
     <% Folder.where(user: current_user).each do |folder| %>
     <div class="dropdown show">
     <li class="nav-item">
-      <a href="" class="nav-link dropdown-toggle collapsible" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <a href="" class="nav-link collapsible" role="button" data-toggle="dropdown">
+        <i class="fas fa-caret-right" id="arrow-folder"></i>
                 <%= folder.name %>
             </a>
 
