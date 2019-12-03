@@ -47,10 +47,28 @@
     width: 100%;
     margin: 0;
   }
-  .page-content.active {
+
+
+.page-content.active {
     margin-left: 17rem;
     width: calc(100% - 17rem);
   }
 }
 
+/* Collapsing CSS */
+
+
+.active, .collapsible:hover {
+  // background-color: #ccc;
+  opacity: 0.6;
+}
+
+.content-collapsible {
+  padding: 0 18px;
+  background-color: red;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
 

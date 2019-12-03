@@ -9,6 +9,9 @@ toggleNavmenu();
 import { selectize } from '../plugins/selectize';
 selectize();
 
+import { collapsibleContent } from '../plugins/collapsible';
+collapsibleContent();
+
 function addAutoResize() {
   document.querySelectorAll('textarea').forEach(function (element) {
     element.style.boxSizing = 'border-box';
