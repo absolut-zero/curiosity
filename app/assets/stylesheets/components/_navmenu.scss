@@ -12,6 +12,8 @@
   // background-image: url('wave1.jpg');
   // background-position: bottom;
   // background-repeat: no-repeat;
+  background-color: #B6DCE2;
+  padding-bottom: 45px;
 
 }
 
@@ -20,6 +22,14 @@
   margin-left: 19rem;
   margin-top: 2rem;
   transition: all 0.4s;
+}
+
+.nav-link{
+  color: #181548;
+}
+
+.nav-link:hover {
+  opacity: 0.8;
 }
 
 #avatar {
@@ -68,10 +78,36 @@
 
 .content-collapsible {
   padding: 0 18px;
-  background-color: red;
-  background-color: white;
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.2s ease-out;
+  margin-left: 25px;
+
 }
+
+.content-collapsible a {
+  color:#181548;
+}
+
+
+// Icons css
+.circle-icon {
+    background: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    vertical-align: middle;
+}
+
+.fas {
+  color: #181548;
+}
+
+// .folder-section {
+//   margin: 0;
+//   padding: 0;
+// }
+
 
