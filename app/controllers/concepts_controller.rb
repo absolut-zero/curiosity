@@ -62,44 +62,25 @@ class ConceptsController < ApplicationController
   end
 
   def search
-    @my_docs = Document.where(user: current_user)
-    @my_folders = Folder.where(user: current_user)
-    @my_doc_concepts = @my_docs.map do |doc|
-      doc.concepts
-    end
-    @my_concepts = @my_doc_concepts.flatten
-    @my_concept_tags = @my_concepts.map do |concept|
-      concept.tags
-    end
-    @my_tags = @my_concept_tags.flatten
+    @all_user_folders = Folder.where(user: current_user)
+    @all_user_documents = Document.where(user: current_user)
 
-    if params[:folder].present? || params[:document].present? || params[:tag].present?
-      tags = @my_tags.map do |tag|
-        tag.name
-      end
+    @all_user_concepts = []
+    @all_user_documents.each { |doc| @all_user_concepts << doc.concepts }
+    @all_user_concepts.flatten!
+    @concepts = @all_user_concepts
 
-      folders = @my_folders.map do |folder|
-        folder.name
-      end
+    @all_user_tags = []
+    @all_user_concepts.each { |concept| @all_user_tags << concept.tags }
 
-      documents = @my_docs.map do |doc|
-        doc.name
-      end
-
-      count = 1
-      count += 1 if folders.count == 0
-      count += 1 if documents.count == 0
-      count += 1 if tags.count == 0
-
-      filter = [tags, folders, documents].flatten.uniq!
-
-      @my_filtered_concepts = @my_concepts.select { |concept| filter.count(concept) > (3 - count) }
+    @folders = @all_user_folders.reject { |folder| folder.documents.each }
+    @documents = @all_user_documents.reject { |doc| doc.concepts.length.zero? }
+    @tags = @all_user_tags.flatten.uniq!
 
 
-
-    else
-      @my_filtered_concepts = Concept.where(user: current_user)
-    end
+    @fol_concepts = Concept.joins(document: :folder).where(document: { folders: { id: params[:folder] } }) if params[:folder].present?
+    @doc_concepts = Concept.where(document_id: params[document]) if params[:document].present?
+    @tag_concepts = Concept.where()
 
   end
   # private
