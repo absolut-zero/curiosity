@@ -5,6 +5,10 @@ class DocumentsController < ApplicationController
     @folder = Folder.new
   end
 
+  def new
+    @document = Document.new
+  end
+
   def show
     @document = Document.find(params[:id])
   end
