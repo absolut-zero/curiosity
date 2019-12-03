@@ -1,0 +1,101 @@
+.template-container {
+  padding: 20px;
+}
+
+/* TEXT CSS */
+.white-text {
+  color: white;
+}
+
+.dark-blue-text {
+  color: #181548;
+}
+
+.orange-text {
+  color: #F5B335;
+}
+
+.light-blue-text{
+  color: #B6DCE2;
+}
+
+/* BACKGROUND CSS */
+.orange-background {
+ background-color: #F5B335;
+ width: 100%;
+ height: 400px;
+}
+
+.light-blue-background {
+ background-color: #B6DCE2;
+ width: 100%;
+ height: 400px;
+}
+
+.white-background {
+ background-color: white;
+ width: 100%;
+ height: 400px;
+}
+
+.dark-blue-background {
+  background-color: #181548;
+ width: 100%;
+ height: 400px;
+}
+
+/* BUTTON CSS */
+.btn:hover {
+  opacity: 0.7;
+  text-decoration: none;
+  background-color: transparent;
+  border-color: transparent;
+  transition: 0.3s;
+  color: light-grey;
+}
+
+.white-btn {
+  color: white;
+  border-color: white;
+}
+
+
+
+.light-blue-btn {
+  color: #B6DCE2;
+  border-color: #B6DCE2;
+}
+
+.dark-blue-btn {
+  color: #181548;
+  border-color: #181548;
+}
+
+.orange-btn {
+  color: #F5B335;
+  border-color: #F5B335;
+}
+
+.white-background-btn {
+  color: #181548;
+  background-color: white;
+  border-color: white;
+}
+
+.dark-blue-background-btn {
+  color: white;
+  background-color: #181548;
+  border-color: #181548;
+}
+
+.orange-background-btn {
+    color: white;
+  background-color: #F5B335;
+  border-color: #F5B335;
+}
+
+.light-blue-background-btn {
+    color: #181548;
+  background-color: #B6DCE2;
+  border-color: #B6DCE2;
+}
