@@ -7,10 +7,11 @@ class SessionAnswersController < ApplicationController
   end
 
   def create
-    params[:session_answer].each do |session_answer|
-      @answer = SessionAnswer.create!(response: session_answer[:response], revision_session_concept_id: session_answer[:session_concept_id].to_i)
+    @answer = SessionAnswer.create!(response: params[:session_answer][:response], revision_session_concept_id: params[:session_answer][:session_concept_id].to_i, correct: params[:session_answer][:correct])
+    respond_to do |format|
+      format.html { }
+      format.js
     end
-    redirect_to revision_session_session_answers_path(RevisionSession.find(params[:revision_session_id]))
   end
 
   def update
