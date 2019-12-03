@@ -2,6 +2,8 @@ import "bootstrap";
 import $ from 'jquery';
 import "selectize"
 import "../plugins/flatpickr"
+import { initDocumentEditor } from '../plugins/DocumentEditor';
+
 
 import { toggleNavmenu } from '../plugins/navmenu';
 toggleNavmenu();
@@ -23,4 +25,4 @@ function addAutoResize() {
 
 addAutoResize();
 
-
+initDocumentEditor('.js-document-editor');
