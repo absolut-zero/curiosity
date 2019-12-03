@@ -1,16 +1,35 @@
 <h1>Revise!</h1>
 
-<div class ="container">
-  <%= simple_form_for @session_answers, url: revision_session_session_answers_path(@revision_session) do |f| %>
-    <% @revision_session_concepts.each do |session_concept| %>
-      <div class="card-white">
-        <h4><%= session_concept.concept.prompt %></h4>
-        <%= f.input :response, input_html: { name: 'session_answer[][response]' } %>
-        <%= f.input :session_concept_id, :as => :hidden, input_html: { name: 'session_answer[][session_concept_id]', value: session_concept.id } %>
-      </div>
-    <% end %>
-    <%= f.submit "Submit Answers", class: "btn btn-primary" %>
+<div class ="container js-revision-session revision-cards">
+  <% @session_answers.each_with_index do |session_answer, index| %>
+    <div
+      class="card-white js-revision-session-card revision-card"
+      style="z-index: <%= @session_answers.length - index %>; transform: rotate(<%= rand(-100..100) / 50.0 %>deg);"
+    >
+      <%= simple_form_for session_answer, remote: true, url: revision_session_session_answers_path(@revision_session) do |f| %>
+        <%= f.input :session_concept_id, :as => :hidden, input_html: { name: 'session_answer[session_concept_id]', value: session_answer.revision_session_concept.id } %>
+
+        <h4>#<%= index + 1 %>: <%= session_answer.revision_session_concept.concept.prompt %></h4>
+
+        <div class="row">
+          <div class="col-md-6">
+            <%= f.input :response, input_html: { name: 'session_answer[response]', class: 'js-session-answer-response' } %>
+            <button class="js-check-answer-btn" type="button">Check answer</button>
+          </div>
+          <div class="col-md-6 d-none js-revision-answer">
+            <%= simple_format(session_answer.revision_session_concept.concept.content) %>
+          </div>
+        </div>
+        <div class="js-revision-action-toolbar d-none">
+          <%= f.button :submit, name: "session_answer[correct]",value: "true"%>
+          <%= f.button :submit, name: "session_answer[correct]",value: "false"%>
+        </div>
+      <% end %>
+    </div>
   <% end %>
+  <div class="js-final-card d-none">
+    <a href="#">Go to results</a>
+  </div>
 </div>
 
 <!-- concept.prompt.nil? ? nil : :value => concept.content  -->

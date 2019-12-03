@@ -2,13 +2,15 @@ import "bootstrap";
 import $ from 'jquery';
 import "selectize"
 import "../plugins/flatpickr"
-
+import { initRevisionSession } from '../plugins/RevisionSession';
 import { toggleNavmenu } from '../plugins/navmenu';
+import { selectize } from '../plugins/selectize';
+
 toggleNavmenu();
 
-import { selectize } from '../plugins/selectize';
 selectize();
 
+initRevisionSession('.js-revision-session');
 import { collapsibleContent } from '../plugins/collapsible';
 collapsibleContent();
 
