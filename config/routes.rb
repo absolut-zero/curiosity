@@ -23,4 +23,5 @@ Rails.application.routes.draw do
   end
 
   get 'search', to: 'concepts#search'
+  get 'template', to: 'pages#template'
 end
