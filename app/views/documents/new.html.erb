@@ -3,10 +3,13 @@
   <%= f.error_notification %>
 <!--   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
  -->
-  <div class="form-inputs">
+  <div class="form-inputs js-document-editor">
     <%= f.input :name %>
     <%= f.input :folder, collection: Folder.all.order(:name) %>
-    <%= f.input :notes %>
+    <%= f.input :notes, { input_html: { class: 'js-notes-input', style: 'width: 0; height: 0; opacity: 0' }} %>
+    <div class="js-notes-display" style="background-color: white; padding: 20px; min-height: 80px">
+    </div>
+    <button class="js-go-to-10" type="button">Go to 10</button>
   </div>
 
   <div class="form-action btn btn-primary">
