@@ -16,7 +16,7 @@
       <tbody>
 
         <% @tags.each do |tag| %>
-          <tr class="revision-row row-future">
+          <tr class="revision-row row-past">
             <td>
               <div class="tag-title"><%= tag.name %></div>
             </td>
@@ -24,7 +24,9 @@
             <td style="text-align: right;">
               <%= link_to "Delete", tag_path(tag), method: :delete, data: { confirm: 'Are you sure?' }  %>
             </td>
-            <td style="text-align: right;"><%= link_to "Start Revision", revision_sessions_tag_path(tag), class: "revision-button" %></td>
+            <td style="text-align: right;">
+              <%= link_to "Revise", revision_sessions_tag_path(tag), method: :post, class: "revision-button" %>
+            </td>
           </tr>
         <% end %>
       </tbody>
