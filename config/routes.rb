@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   post 'revision_sessions_doc/:id', to: 'revision_sessions#create_from_doc', as: :revision_sessions_doc
   post 'revision_sessions_tag/:id', to: 'revision_sessions#create_from_tag', as: :revision_sessions_tag
+  post 'revision_sessions_concept/:id', to: 'revision_sessions#create_from_concept', as: :revision_sessions_concept
 
   resources :tags, only: [:index, :destroy]
 

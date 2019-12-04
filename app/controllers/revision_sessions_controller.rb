@@ -22,6 +22,11 @@ class RevisionSessionsController < ApplicationController
     end
   end
 
+  def create_from_concept
+    @concepts = Concept.find(params[:id].split('/'))
+    redirect_to revision_session_path(RevisionSessionGenerator.generate_from_concepts(@concepts, current_user))
+  end
+
   def show
     @revision_session = RevisionSession.find(params[:id])
     @session_answers = SessionAnswerGenerator.generate(@revision_session)

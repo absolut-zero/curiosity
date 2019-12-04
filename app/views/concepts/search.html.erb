@@ -30,6 +30,9 @@
 <h1>Filter concepts</h1>
 <% unless @concepts.nil? %>
 <% if @concepts.length > 0 %>
+<br>
+<%= link_to "Revise These Concepts", revision_sessions_concept_path(id: @concept_ids), method: :post %>
+<br>
 <% @concepts.each do |concepts| %>
     <div class="card-white">
 
