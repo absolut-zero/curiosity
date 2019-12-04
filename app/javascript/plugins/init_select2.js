@@ -8,5 +8,4 @@ const initSelect2 = () => {
  };
 
 
-
 export { initSelect2 };
