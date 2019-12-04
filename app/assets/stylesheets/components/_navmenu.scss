@@ -18,10 +18,11 @@
 }
 
 .page-content {
-  width: calc(100% - 17rem);
+  width: calc(100% - 19rem);
   margin-left: 19rem;
   margin-top: 2rem;
   transition: all 0.4s;
+  padding-right: 2rem;
 }
 
 .nav-link{
@@ -73,7 +74,7 @@
 
 .active, .collapsible:hover {
   // background-color: #ccc;
-  opacity: 0.6;
+  // opacity: 0.6;
 }
 
 .content-collapsible {
