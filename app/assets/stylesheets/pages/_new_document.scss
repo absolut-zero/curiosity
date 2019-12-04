@@ -1,0 +1,18 @@
+.new-document-page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.new-document-page-header {
+  display: flex;
+
+  .form-group {
+    flex: 1;
+  }
+}
+
+.new-document-page-editor {
+  flex: 1;
+}
