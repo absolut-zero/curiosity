@@ -2,7 +2,7 @@
 <% if user_signed_in? %>
 
   <div align="right" class="px-3">
-    Start your revisions of the day
+    Start your revisions
   <a href="#"><i class="fas fa-play circle-icon"></i></a>
   </div>
 
@@ -64,7 +64,7 @@
                 <% end %>
               </td>
 
-              <td><%= link_to "Start Revision", revision_session_path(session) %></td>
+              <td style="text-align: right;"><%= link_to "Start Revision", revision_session_path(session), class: "revision-button" %></td>
             </tr>
 
         <% end %>
