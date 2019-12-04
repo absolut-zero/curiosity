@@ -73,7 +73,7 @@ class ConceptsController < ApplicationController
     @all_user_tags = []
     @all_user_concepts.each { |concept| @all_user_tags << concept.tags }
 
-    @folders = @all_user_folders.reject { |folder| folder.documents.each }
+    @folders = @all_user_folders.reject { |folder| folder.documents.length.zero? }
     @documents = @all_user_documents.reject { |doc| doc.concepts.length.zero? }
     @tags = @all_user_tags.flatten.uniq!
 
@@ -86,6 +86,8 @@ class ConceptsController < ApplicationController
     else
       @concepts = @all_user_concepts
     end
+    @concept_ids = []
+    @concepts.each { |c| @concept_ids << c.id }
   end
   # private
 
