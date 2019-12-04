@@ -24,10 +24,11 @@ class DocumentEditor {
 
   init() {
     this.inputEl.addEventListener('keyup', this.onInputUpdate);
+    this.onInputUpdate();
   }
 
   // Events. Make sure this are all bound in the constructor.
-  onInputUpdate(e) {
+  onInputUpdate() {
     let displayHtml = '';
 
     const concepts = this.inputEl.value.split("\n\n\n");

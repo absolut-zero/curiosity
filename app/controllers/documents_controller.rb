@@ -20,10 +20,18 @@ class DocumentsController < ApplicationController
       @document.folder = Folder.find(params[:document][:folder])
     end
     @document.user = current_user
-    if @document.save
-      redirect_to documents_path
+    if params[:save_and_create]
+      if @document.save
+        redirect_to document_concepts_path(@document)
+      else
+        render :new
+      end
     else
-      render :index
+      if @document.save
+        redirect_to document_path(@document)
+      else
+        render :new
+      end
     end
   end
 
