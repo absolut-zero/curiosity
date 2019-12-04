@@ -77,11 +77,15 @@ class ConceptsController < ApplicationController
     @documents = @all_user_documents.reject { |doc| doc.concepts.length.zero? }
     @tags = @all_user_tags.flatten.uniq!
 
-
     @fol_concepts = Concept.joins(document: :folder).where(document: { folders: { id: params[:folder] } }) if params[:folder].present?
-    @doc_concepts = Concept.where(document_id: params[document]) if params[:document].present?
-    @tag_concepts = Concept.where()
+    @doc_concepts = Concept.where(document_id: params[:document]) if params[:document].present?
+    @tag_concepts = Concept.includes(:tags).where(tags: { id: params[:tag] }) if params[:tag].present?
 
+    if params[:folder].present? || params[:document].present? || params[:tag].present?
+      @concepts = [@fol_concepts, @doc_concepts, @tag_concepts].flatten.compact.uniq
+    else
+      @concepts = @all_user_concepts
+    end
   end
   # private
 
