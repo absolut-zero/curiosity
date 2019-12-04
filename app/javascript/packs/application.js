@@ -2,7 +2,9 @@ import "bootstrap";
 import $ from 'jquery';
 import "selectize"
 import "../plugins/flatpickr"
+
 import "selectize/dist/css/selectize.bootstrap3.css"
+
 
 import { initDocumentEditor } from '../plugins/DocumentEditor';
 import { initRevisionSession } from '../plugins/RevisionSession';
@@ -14,9 +16,11 @@ toggleNavmenu();
 
 selectize();
 
+
 initRevisionSession('.js-revision-session');
 
 collapsibleContent();
+
 
 function addAutoResize() {
   document.querySelectorAll('textarea').forEach(function (element) {

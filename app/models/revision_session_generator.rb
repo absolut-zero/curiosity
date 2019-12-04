@@ -27,7 +27,11 @@ class RevisionSessionGenerator
     duration = 60
     day_secs = 86_400
     submit_date = document.submitted_at.at_beginning_of_day
-    end_date = document.end_at.at_beginning_of_day
+    if document.end_at.present?
+      end_date = document.end_at.at_beginning_of_day
+    else
+      end_date = Date.today.at_beginning_of_day + 60
+    end
     unless document.end_at.nil?
       duration = ((end_date - submit_date) / day_secs).round
     end
