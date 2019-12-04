@@ -1,60 +1,62 @@
-
-<%= link_to "All Documents", documents_path  %>
-<br>
-
-<%= link_to "Delete this Document", document_path(@document), method: :delete, data: { confirm: 'Are you sure?' }  %>
-
-<div class="container-form">
-<div class="row">
-<div class="col-md-8 offset-md-2 form-content">
-
 <% if @document.concepts.length.zero? %>
   <%= simple_form_for @document, url: document_path(@document) do |f| %>
-    <%= f.error_notification %>
-    <%= f.input :name, value: "@document.name" %>
-    <%= f.input :notes, value: "@document.notes" %>
-    <%= f.input :end_at, as: :string, required: false, input_html: {class: "datepicker"} %>
-    <%= f.button :submit, class: "btn-primary" %>
+    <div class="new-document-page">
+      <div class="new-document-page-header">
+        <div class="folder-date">
+          <%= f.input :folder, collection: Folder.all.order(:name), label: "Folder:" %>
+          <%= f.input :end_at, as: :string, label: "Due:", required: false, input_html: {class: "datepicker"} %>
+        </div>
+        <%= f.error_notification %>
+        <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+        <div class="save-buttons">
+          <%= f.submit "Save" , class: "form-action btn btn-primary" %>
+          <%= f.submit "Save & Create Concepts", name: "save_and_create", class: "form-action btn btn-primary" %>
+        </div>
+      </div>
+      <div class="new-document-white-page">
+        <div class="new-document-name">
+          <%= f.input :name, value: "@document.name", placeholder: 'Untitled Document', label: false, wrapper_html: { class: 'document-name-input' } %>
+        </div>
+        <div class="js-document-editor new-document-page-editor document-editor">
+          <%= f.input :notes, value: "@document.notes", wrapper_html: { class: 'document-editor-input' }, input_html: { class: 'js-notes-input' } %>
+          <div class="js-notes-display document-editor-text"></div>
+        </div>
+      </div>
+    </div>
   <% end %>
-  <%= link_to "Create Concepts", document_concepts_path(@document), { :class=>"btn btn-primary" } %>
 <% else %>
-  <h1><%= @document.name %></h1>
-  <p><%= simple_format(@document.notes) %></p>
-  <p><%= link_to "Revise", revision_sessions_doc_path(@document), method: :post %></p>
   <% unless @document.end_at.nil? %>
     <p>Schedule ends at: <%= @document.end_at %></p>
   <% end %>
-<% end %>
-</div>
-</div>
-</div>
-
-<%= simple_form_for @document, url: document_path(@document) do |f| %>
-  <div class="new-document-page">
-    <div class="new-document-page-header">
-      <div class="folder-date">
-        <%= f.input :folder, collection: Folder.all.order(:name), label: "Folder:" %>
-        <%= f.input :end_at, as: :string, label: "Due:", required: false, input_html: {class: "datepicker"} %>
+  <%= simple_form_for @document, url: document_path(@document) do |f| %>
+    <div class="new-document-page">
+      <div class="new-document-page-header">
+        <div class="folder-date">
+          <%= f.input :folder, collection: Folder.all.order(:name), label: "Folder:", value: "@document.folder" %>
+          <%= f.input :end_at, as: :string, label: "Due:", required: false, input_html: {class: "datepicker"}, value: "@document.end_at" %>
+        </div>
+        <%= f.error_notification %>
+        <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+        <div class="update-buttons">
+          <%= link_to "Revise", revision_sessions_doc_path(@document), method: :post, class: "btn btn-primary" %>
+          <%= f.submit "Update" , class: "form-action btn btn-primary" %>
+          <%= link_to "Delete this Document", document_path(@document), method: :delete, data: { confirm: 'Are you sure?' }, class: "form-action btn btn-primary" %>
+        </div>
       </div>
-      <%= f.error_notification %>
-      <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-      <div class="save-buttons">
-        <%= f.submit "Save" , class: "form-action btn btn-primary" %>
-        <%= f.submit "Save & Create Concepts", name: "save_and_create", class: "form-action btn btn-primary" %>
-      </div>
-    </div>
-    <div class="new-document-white-page">
-      <div class="new-document-name">
-        <%= f.input :name, value: "@document.name", placeholder: 'Untitled Document', label: false, wrapper_html: { class: 'document-name-input' } %>
-      </div>
-      <div class="js-document-editor new-document-page-editor document-editor">
-        <%= f.input :notes, value: "@document.notes", wrapper_html: { class: 'document-editor-input' }, input_html: { class: 'js-notes-input' } %>
-        <div class="js-notes-display document-editor-text"></div>
+      <div class="new-document-white-page">
+        <div class="new-document-name">
+          <%= f.input :name, value: "@document.name", placeholder: 'Untitled Document', label: false, wrapper_html: { class: 'document-name-input' } %>
+        </div>
+        <div class="js-document-editor new-document-page-editor document-editor">
+          <%= f.input :notes, value: "@document.notes", wrapper_html: { class: 'document-editor-input' }, input_html: { class: 'js-notes-input' } %>
+          <div class="js-notes-display document-editor-text"></div>
+        </div>
       </div>
     </div>
-  </div>
-
+  <% end %>
 <% end %>
+
+
 
 
 
