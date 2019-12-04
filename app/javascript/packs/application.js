@@ -10,7 +10,15 @@ import { initDocumentEditor } from '../plugins/DocumentEditor';
 import { initRevisionSession } from '../plugins/RevisionSession';
 import { toggleNavmenu } from '../plugins/navmenu';
 import { selectize } from '../plugins/selectize';
+
+import 'select2/dist/css/select2.css';
+
+import { initSelect2 } from '../plugins/init_select2';
+
+initSelect2();
+
 import { collapsibleContent } from '../plugins/collapsible';
+
 
 toggleNavmenu();
 
