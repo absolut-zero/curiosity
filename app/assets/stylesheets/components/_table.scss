@@ -24,6 +24,12 @@ opacity: 0.6;
 .table {
     border-collapse: separate;
     border-spacing:0 20px;
+
+}
+
+table{
+  width: 100%;
+  table-layout: fixed;
 }
 
 .revision-tag {
