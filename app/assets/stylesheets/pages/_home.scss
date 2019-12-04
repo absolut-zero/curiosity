@@ -1,1 +1,47 @@
 // Specific CSS for your home-page
+.home-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.card-small {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  width: 200px;
+  height: 200px;
+}
+
+.card-small > img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-small h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-small p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+
+
+.card-small .card-small-text {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  position: relative;
+}
+
+.card-small-infos .card-small-user {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
+}
