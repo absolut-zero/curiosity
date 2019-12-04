@@ -27,8 +27,12 @@
       <% end %>
     </div>
   <% end %>
-  <div class="card-white js-final-card d-none">
-    <a href="#">Go to results</a>
+  <div class="card-white js-final-card d-none revision-card">
+    <%= link_to "Finish Session", revision_session_path(id: @revision_session), method: :put %>
+    <% if @next_session %>
+    <br>
+    <%= link_to "Save & Continue Today's Revision", revision_session_path(id: @revision_session, save_and_continue: "save_and_continue"), method: :put %>
+    <% end %>
   </div>
 </div>
 

@@ -38,10 +38,21 @@ class DocumentsController < ApplicationController
   def update
     @document = Document.find(params[:id])
     @document.user = current_user
-    if @document.update(document_params)
-      redirect_to documents_path
+    unless params[:document][:folder] == ''
+      @document.folder = Folder.find(params[:document][:folder])
+    end
+    if params[:save_and_create]
+      if @document.update(document_params)
+        redirect_to document_concepts_path(@document)
+      else
+        render :show
+      end
     else
-      render :show
+      if @document.update(document_params)
+        redirect_to document_path(@document)
+      else
+        render :show
+      end
     end
   end
 
