@@ -1,14 +1,35 @@
-<div class="row">
-<div class="col-md-8 offset-md-2 form-content">
-<h1>Tags</h1>
-<ul>
-  <% @tags.each do |tag| %>
-  <li>
-    <h3> <%= tag.name %> </h3>
-    <small>  -- <%= link_to "Delete", tag_path(tag), method: :delete, data: { confirm: 'Are you sure?' }  %></small>
-    <small>  -- <%= link_to "Revise", revision_sessions_tag_path(tag), method: :post %></small>
-  </li>
+
+
+<% if user_signed_in? %>
+<h1>My Tags</h1>
+
+  <div class="table-responsive-md">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th style="width: 60%" scope="col">Tag Name</th>
+          <th style="width: 30%" scope="col"></th>
+          <th style="width: 10%" scope="col"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <% @tags.each do |tag| %>
+          <tr class="revision-row row-past">
+            <td>
+              <div class="tag-title"><%= tag.name %></div>
+            </td>
+
+            <td style="text-align: right;">
+              <%= link_to "Delete", tag_path(tag), method: :delete, data: { confirm: 'Are you sure?' }  %>
+            </td>
+            <td style="text-align: right;">
+              <%= link_to "Revise", revision_sessions_tag_path(tag), method: :post, class: "revision-button" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 <% end %>
-</ul>
-</div>
-</div>

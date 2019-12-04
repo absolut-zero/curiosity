@@ -1,19 +1,19 @@
 .revision-row {
-  box-shadow: 0 0 4px rgba(0,0,0,0.2);
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  opacity: 1;
 }
 
 .row-past {
 // background-color: grey;
-box-shadow: 0 0 5px rgba(0,0,0,0.2);
-opacity: 0.5;
 }
 
 .row-today {
-box-shadow: 0 0 4px #373C66;
+
 }
 
 .row-future {
-
+opacity: 0.6;
 }
 
 .table-hover tbody tr:hover {
@@ -46,4 +46,27 @@ box-shadow: 0 0 4px #373C66;
 
 h1 {
   font-family: 'Courgette', cursive;
+}
+
+.revision-button {
+    display: inline-block;
+    background: #181548;
+    padding: 10px 15px;
+    border-radius: 9px;
+    color: white;
+
+}
+
+.revision-button {
+  text-decoration: none;
+}
+
+.revision-button:hover {
+  color: white;
+  text-decoration: none;
+  opacity: 0.7;
+}
+
+.table thead {
+  display:none;
 }
