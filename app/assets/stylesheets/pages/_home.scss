@@ -2,7 +2,9 @@
 .home-container {
   display: flex;
   // flex-direction: row;
-  flex-wrap: wrap;
+  flex-direction: column;
+  width: 80%;
+  margin: 0 auto;
   align-items: flex-start;
   justify-content: center;
   // background-color: white;
@@ -12,7 +14,7 @@
 .card-small {
   overflow: hidden;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  display: flex;
+  width: 100%;
   align-items: center;
   margin: 16px;
 }
@@ -26,7 +28,6 @@
 
 .card-draft-documents {
   background-color: #181548 ; //
-  width: 350px;
   height: auto;
   justify-content: center;
   color: white;
@@ -63,7 +64,7 @@
   display: flex;
   align-items: center;
   margin: 16px;
-  width: 732px;
+  width: 100%;
 }
 
 .card-large .revision-button {
