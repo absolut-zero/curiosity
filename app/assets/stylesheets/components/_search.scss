@@ -7,18 +7,36 @@
   margin: 20px auto;
   padding: 20px;
   text-align: center;
-  background-color: white;
+  background-color: #F5B335;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 4px;
+
 }
 
 .filter-inner-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-content: end;
+  text-align: initial;
 }
 
 .btn-search {
   height: 36px;
   margin-top: 32px;
+}
+
+.select2-selection--multiple {
+
+}
+
+.filter-btn {
+  align-self: center;
+  text: bolder;
+  margin-top: 35px;
+}
+
+.filter-col {
+  padding: 10px;
+  margin: 0px;
+  width: 250px;
 }
