@@ -28,6 +28,8 @@
 -------------------------------------
 <div id="search-content">
 <h1>Filter concepts</h1>
+<% unless @concepts.nil? %>
+<% if @concepts.length > 0 %>
 <% @concepts.each do |concepts| %>
     <div class="card-white">
 
@@ -36,7 +38,8 @@
       <%= concepts.content %>
 
     </div>
-
+<% end %>
+<% end %>
 <% end %>
 </div>
 </div>
