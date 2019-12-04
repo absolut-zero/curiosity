@@ -41,7 +41,7 @@ class ConceptsController < ApplicationController
     end
     if new_concepts.count == params[:concept].count
       RevisionSessionGenerator.create_spaced_repitition(@document, current_user)
-      redirect_to documents_path
+      redirect_to revision_sessions_path
     else
       redirect_to document_concepts_path(@document)
     end

@@ -31,20 +31,16 @@ class RevisionSessionsController < ApplicationController
     @revision_session = RevisionSession.find(params[:id])
     @session_answers = SessionAnswerGenerator.generate(@revision_session)
     @revision_session_concepts = @revision_session.revision_session_concepts
+    @next_session = RevisionSession.where(user: current_user).where("scheduled_at <= ?", Date.today.at_beginning_of_day).where.not(id: params[:id]).where(completed_at: nil).order(scheduled_at: :asc).first
   end
 
   def update
-    raise
-    @revision_session = RevisionSession.find(params[:revision_session_id])
+    @revision_session = RevisionSession.find(params[:id])
     @revision_session.completed_at = Date.today.at_beginning_of_day
     @revision_session.save
-    params[:session_answers].each do |session_answer|
-      @answer = SessionAnswer.find(session_answer[0])
-      @answer.correct = session_answer[1][:correct]
-      @answer.save
-    end
+    @next_session = RevisionSession.where(user: current_user).where("scheduled_at <= ?", Date.today.at_beginning_of_day).where.not(id: params[:id]).where(completed_at: nil).order(scheduled_at: :asc).first
     if params[:save_and_continue]
-      redirect_to revision_session_path(params[:save_and_continue])
+      redirect_to revision_session_path(@next_session)
     else
       redirect_to revision_sessions_path
     end

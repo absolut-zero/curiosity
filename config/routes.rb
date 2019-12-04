@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   resources :tags, only: [:index, :destroy]
 
-  resources :revision_sessions, only: [:index, :show, :destroy] do
+  resources :revision_sessions, only: [:index, :show, :update, :destroy] do
     resources :session_answers, only: [:index, :create]
     put '/session_answers', to: 'session_answers#update'
   end
