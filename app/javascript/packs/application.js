@@ -2,20 +2,20 @@ import "bootstrap";
 import $ from 'jquery';
 import "selectize"
 import "../plugins/flatpickr"
+import "selectize/dist/css/selectize.bootstrap3.css"
 
 import { initDocumentEditor } from '../plugins/DocumentEditor';
-
 import { initRevisionSession } from '../plugins/RevisionSession';
-
 import { toggleNavmenu } from '../plugins/navmenu';
 import { selectize } from '../plugins/selectize';
+import { collapsibleContent } from '../plugins/collapsible';
 
 toggleNavmenu();
 
 selectize();
 
 initRevisionSession('.js-revision-session');
-import { collapsibleContent } from '../plugins/collapsible';
+
 collapsibleContent();
 
 function addAutoResize() {
