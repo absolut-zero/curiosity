@@ -13,7 +13,6 @@ class NavMenu {
   // Keep the constructor lean, don't add anything more to this.
   constructor(el) {
     this.el = el;
-
     // Bind event listener methods to class.
     this.onButtonClick = this.onButtonClick.bind(this);
 
@@ -39,6 +38,9 @@ class NavMenu {
     navToggle.classList.toggle('active');
     const contentToggle = document.querySelector('.page-content');
     contentToggle.classList.toggle('active');
+    const arrowToggle = document.querySelector('#arrow');
+    arrowToggle.classList.toggle('fa-angle-double-left');
+    arrowToggle.classList.toggle('fa-angle-double-right');
   }
 }
 

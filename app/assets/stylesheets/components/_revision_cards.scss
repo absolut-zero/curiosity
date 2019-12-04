@@ -1,0 +1,13 @@
+.revision-cards {
+  position: relative;
+  height: 500px;
+
+  .revision-card {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    bottom: 20px;
+    right: 20px;
+    transition: transform 2s;
+  }
+}

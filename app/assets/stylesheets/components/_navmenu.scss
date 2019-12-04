@@ -9,6 +9,11 @@
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
   transition: all 0.4s;
   overflow: auto;
+  // background-image: url('wave1.jpg');
+  // background-position: bottom;
+  // background-repeat: no-repeat;
+  background-color: #B6DCE2;
+  padding-bottom: 45px;
 
 }
 
@@ -17,6 +22,14 @@
   margin-left: 19rem;
   margin-top: 2rem;
   transition: all 0.4s;
+}
+
+.nav-link{
+  color: #181548;
+}
+
+.nav-link:hover {
+  opacity: 0.8;
 }
 
 #avatar {
@@ -47,10 +60,54 @@
     width: 100%;
     margin: 0;
   }
-  .page-content.active {
+
+
+.page-content.active {
     margin-left: 17rem;
     width: calc(100% - 17rem);
   }
 }
+
+/* Collapsing CSS */
+
+
+.active, .collapsible:hover {
+  // background-color: #ccc;
+  opacity: 0.6;
+}
+
+.content-collapsible {
+  padding: 0 18px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  margin-left: 25px;
+
+}
+
+.content-collapsible a {
+  color:#181548;
+}
+
+
+// Icons css
+.circle-icon {
+    background: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    vertical-align: middle;
+}
+
+.fas {
+  color: #181548;
+}
+
+// .folder-section {
+//   margin: 0;
+//   padding: 0;
+// }
 
 
