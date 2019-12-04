@@ -63,12 +63,16 @@ class RevisionSession {
 
     this.currentStep ++;
 
-    const newCurrentCard = this.cardEls[this.currentStep];
-    newCurrentCard.style.transform = 'rotate(0)';
-
-    if (this.currentStep === this.cardEls.length) {
+    if (this.currentStep < this.cardEls.length) {
+      const newCurrentCard = this.cardEls[this.currentStep];
+      newCurrentCard.style.transform = 'rotate(0)';
+    }
+    else {
       this.finalCardEl.classList.remove('d-none');
     }
+
+    console.log(this.currentStep);
+    console.log(this.cardEls.length);
   }
 
   // Events. Make sure this are all bound in the constructor.
