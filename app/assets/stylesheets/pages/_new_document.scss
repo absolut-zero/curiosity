@@ -3,16 +3,46 @@
   display: flex;
   flex-direction: column;
   position: relative;
+  width: 60vw;
+  margin: 0 auto 40px auto;
 }
 
 .new-document-page-header {
   display: flex;
-
-  .form-group {
-    flex: 1;
+  justify-content: space-between;
+  .folder-date {
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+  }
+  .save-buttons {
+    height: 100%;
+    width: 32%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-bottom: 16px;
   }
 }
 
 .new-document-page-editor {
   flex: 1;
+}
+
+.new-document-white-page {
+  padding: 60px 80px;
+  background: white;
+  height: 100%;
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.new-document-name {
+  margin-bottom: 40px;
+  input {
+    box-shadow: none;
+    &:focus {
+      box-shadow: none;
+    }
+  }
 }
