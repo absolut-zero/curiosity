@@ -1,0 +1,82 @@
+<div class="row">
+<div class="col-md-8 offset-md-2 form-content">
+
+<div class="outer-container">
+
+  <div class="filter-container">
+    <h2 align="center">Find your concepts and start a revision</h2>
+    <%= form_tag search_path, method: :get do %>
+
+    <div class="filter-inner-container">
+
+      <!-- filtering by Documents name -->
+    <div class="filter-col">
+      <%= label_tag 'Document' %>
+      <select name="document[]" id="document" multiple="" class="select2 select2-hidden-accessible" data-select2-id="document" tabindex="-1" aria-hidden="true">
+        <%  @my_docs.each do |doc| %>
+        <option value="<%= doc.name %>"><%= doc.name %></option>
+        <% end %>
+      </select>
+    </div>
+
+    <!-- filtering by Folders name -->
+    <div class="filter-col">
+      <%= label_tag 'Folder' %>
+      <select name="folder[]" id="folder" multiple="" class="select2 select2-hidden-accessible" data-select2-id="folder" tabindex="-1" aria-hidden="true">
+        <%  @my_folders.each do |folder| %>
+        <option value="<%= folder.name %>"><%= folder.name %></option>
+        <% end %>
+      </select>
+    </div>
+
+    <!-- filtering by Tags Name -->
+    <div class="filter-col">
+      <%= label_tag 'Tag' %>
+      <select name="tag[]" id="tag" multiple="" class="select2 select2-hidden-accessible" data-select2-id="tag" tabindex="-1" aria-hidden="true">
+        <% @my_tags.each do |tag| %>
+        <option value="<%= tag.name %>"><%= tag.name %></option>
+        <% end %>
+      </select>
+    </div>
+
+    </div>
+    <%= submit_tag "Filter", class: "btn btn-primary btn-search" %>
+    <% end %>
+    </div>
+
+    <%= form_tag prof_listings_path, method: :get do %>
+    <div class="filter-inner-container">
+    <div class="filter-col">
+    <%= label_tag 'Industry' %>
+    <%= select_tag "industry", options_for_select(ProfListing::INDUSTRIES), multiple: true, class: 'select2' %>
+    </div>
+    <div class="filter-col">
+    <%= label_tag 'Role' %>
+    <%= select_tag "role", options_for_select(ProfListing::ROLES), multiple: true, class: 'select2' %>
+    </div>
+    <div class="filter-col">
+    <%= label_tag 'Company' %>
+    <%= select_tag "company", options_for_select(ProfListing::COMPANIES), multiple: true, class: 'select2' %>
+    </div>
+    <%= submit_tag "Filter", class: "btn btn-primary btn-search" %>
+    </div>
+    <% end %>
+
+
+-------------------------------------
+<div id="search-content">
+<h1>Filter concepts</h1>
+<% @concepts.each do |concepts| %>
+    <div class="card-white">
+
+      <b><%= concepts.prompt %></b>
+      <br>
+      <%= concepts.content %>
+
+    </div>
+
+<% end %>
+</div>
+</div>
+</div>
+</div>

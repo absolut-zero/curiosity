@@ -1,25 +1,8 @@
 <h1>
-  <% if Time.now.hour >= 12 %>
-    Good Afternoon, <%= current_user.first_name %>
-  <% else %>
-    Good Morning, <%= current_user.first_name %>
-  <% end %>
+  Archived Revision Sessions
 </h1>
 
 <div>
-  <div>
-    <h3><%= link_to "New Document", new_document_path %></h3>
-    <br>
-    <h3>Drafts</h3>
-    <ul>
-      <% @drafts.each do |draft| %>
-      <li>
-        <h4><%= link_to draft.name, document_path(draft) %></h4>
-        <p><%= link_to "Delete", document_path(draft), method: :delete, data: { confirm: 'Are you sure?' } %></p>
-      </li>
-      <% end %>
-    </ul>
-  </div>
   <div>
     <br>
     <div class="table-responsive-md">
@@ -29,12 +12,12 @@
           <th style="width: 20%" scope="col">Document Name</th>
           <th style="width: 20%" scope="col">Tags</th>
           <th style="width: 20%" scope="col">Retention</th>
-          <th style="width: 20%" scope="col">Scheduled for</th>
+          <th style="width: 20%" scope="col">Completed at</th>
           <th style="width: 20%" scope="col"></th>
         </tr>
       </thead>
       <tbody>
-    <% @revision_sessions.each do |session| %>
+    <% @archived_revision_sessions.each do |session| %>
         <tr>
           <td>
             <%= link_to "Delete ", revision_session_path(session), method: :delete, data: { confirm: 'Are you sure?' }%>
@@ -47,22 +30,17 @@
           <% tags.each { |tag| tags_print += "#{tag.name} " } %>
           <td><%= tags_print %></td>
           <td>xx%</td>
-          <td><% days_left =(Date.new((session.scheduled_at.year), (session.scheduled_at.month), (session.scheduled_at.day)) - Date.today).to_i %>
-            <% if days_left == 0 %>
+          <td><% days_since = (Date.today - Date.new((session.completed_at.year), (session.completed_at.month), (session.completed_at.day))).to_i %>
+            <% if days_since == 0 %>
               Today
-            <%  elsif days_left == 1 %>
-              Tomorrow
-            <%  elsif days_left == -1 %>
+            <%  elsif days_since == 1 %>
               Yesterday
-            <%  elsif days_left < -1 %>
-              <%= days_left %> days ago
-            <% else %>
-              In <%= days_left %> days
+            <%  elsif days_since > 1 %>
+              <%= days_since %> days ago
             <% end %>
           </td>
           <td><%= link_to "Start Revision", revision_session_path(session) %></td
         </tr>
-
     <% end %>
       </tbody>
 
@@ -70,4 +48,3 @@
     </div>
   </div>
 </div>
-

@@ -23,11 +23,24 @@ class RevisionSessionGenerator
     revision_session
   end
 
+  def self.generate_from_concepts(concept_array, user, scheduled_at = nil)
+    concepts = concept_array
+    revision_session = RevisionSession.create!(user: user, scheduled_at: scheduled_at)
+    concepts.each do |concept|
+      RevisionSessionConcept.create!(concept: concept, revision_session: revision_session)
+    end
+    revision_session
+  end
+
   def self.create_spaced_repitition(document, user)
     duration = 60
     day_secs = 86_400
     submit_date = document.submitted_at.at_beginning_of_day
-    end_date = document.end_at.at_beginning_of_day
+    if document.end_at.present?
+      end_date = document.end_at.at_beginning_of_day
+    else
+      end_date = Date.today.at_beginning_of_day + 60
+    end
     unless document.end_at.nil?
       duration = ((end_date - submit_date) / day_secs).round
     end
