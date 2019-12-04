@@ -1,47 +1,74 @@
 // Specific CSS for your home-page
 .home-container {
   display: flex;
-  flex-direction: row;
+  // flex-direction: row;
   flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  // background-color: white;
+
+
 }
 .card-small {
   overflow: hidden;
-  background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  width: 200px;
-  height: 200px;
-}
-
-.card-small > img {
-  height: 200px;
-  width: 100%;
-  object-fit: cover;
-}
-
-.card-small h2 {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
-}
-
-.card-small p {
-  font-size: 12px;
-  opacity: .7;
-  margin: 0;
-}
-
-
-.card-small .card-small-text {
-  padding: 16px;
   display: flex;
-  justify-content: space-between;
-  text-align: center;
-  position: relative;
+  align-items: center;
+  margin: 16px;
 }
 
-.card-small-infos .card-small-user {
-  position: absolute;
-  right: 16px;
-  top: -20px;
-  width: 40px;
+.card-new-document {
+  background-color: #F5B335 ;
+  width: 350px;
+  height: 250px;
+  justify-content: center;
 }
+
+.card-draft-documents {
+  background-color: #181548 ; //
+  width: 350px;
+  height: auto;
+  justify-content: center;
+  color: white;
+  font-family: "Raleway", "Helvetica", "sans-serif";
+}
+
+.card-small-text {
+}
+
+.card-new-document-text a {
+  font-size: 24px;
+  margin: 0;
+  text-decoration: none;
+}
+
+.card-draft-documents-text a {
+  font-size: 20px;
+  color: white;
+}
+.card-draft-documents-text i {
+  font-size: 10px;
+  color: white;
+}
+
+.card-draft-documents-text h3 {
+  padding-top: 8px;
+  text-align: center
+
+}
+
+.card-large {
+  overflow: hidden;
+  // box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  margin: 16px;
+  width: 732px;
+}
+
+.card-large .revision-button {
+text-align: center;
+padding: 3px 7px;
+}
+
+
