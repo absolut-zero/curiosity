@@ -1,0 +1,70 @@
+.document-editor {
+  position: relative;
+  padding-bottom: 40px;
+  background: transparent;
+
+  label {
+    display: none;
+  }
+
+  textarea {
+    background: transparent;
+    position: relative;
+    z-index: 1;
+
+    &:focus {
+      background: transparent;
+      outline: none;
+      border: none;
+      box-shadow: none;
+    }
+  }
+
+  textarea,
+  .document-editor-text {
+    padding: 10px;
+    font-size: 16px;
+    font-family: Arial;
+    border: none;
+  }
+
+  .document-editor-text {
+    white-space: pre-wrap;
+    color: transparent;
+  }
+
+  .document-editor-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    textarea {
+      min-height: 100%;
+    }
+  }
+
+  .document-editor-concept {
+    margin-bottom: 48px;
+    min-height: 24px;
+    position: relative;
+    background: #eee;
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      right: -10px;
+      bottom: -10px;
+      background: #eee;
+      z-index: -1;
+      border-radius: 3px;
+      min-height: 45px;
+    }
+  }
+  .document-editor-concept:last-child {
+    border-bottom: 0;
+  }
+}

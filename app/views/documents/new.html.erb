@@ -1,24 +1,19 @@
-<div class="row">
-<div class="col-md-8 offset-md-2 form-content">
-<h2>Create a new document</h2>
 <%= simple_form_for @document do |f| %>
-  <%= f.error_notification %>
-<!--   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
- -->
-  <div class="form-inputs js-document-editor">
-    <%= f.input :name %>
-    <%= f.input :folder, collection: Folder.all.order(:name) %>
-    <%= f.input :notes, { input_html: { class: 'js-notes-input', style: 'width: 0; height: 0; opacity: 0' }} %>
-    <div class="js-notes-display" style="background-color: white; padding: 20px; min-height: 80px">
+  <div class="new-document-page">
+    <div class="new-document-page-header">
+      <%= f.input :folder, collection: Folder.all.order(:name), label: false %> / <%= f.input :name, placeholder: 'Untitled Document', label: false %>
+      <div class="form-action btn btn-primary">
+        <%= f.button :submit %>
+      </div>
+      <%= f.error_notification %>
     </div>
-    <button class="js-go-to-10" type="button">Go to 10</button>
-  </div>
 
-  <div class="form-action btn btn-primary">
-    <%= f.button :submit %>
+    <div class="js-document-editor new-document-page-editor document-editor">
+      <%= f.input :notes, wrapper_html: { class: 'document-editor-input' }, input_html: { class: 'js-notes-input' } %>
+      <div class="js-notes-display document-editor-text"></div>
+    </div>
+  <!--   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+   -->
   </div>
 
 <% end %>
-
-</div>
-</div>
