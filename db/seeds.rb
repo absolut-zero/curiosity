@@ -358,7 +358,7 @@ p "Creating new revision sessions from documents..."
 
 RevisionSessionGenerator.generate_from_document(doc_alleles, user, Date.parse("05-12-2019"))
 
-RevisionSessionGenerator.generate_from_document(doc_evolution, user, Date.parse("11-11-2019"))
+RevisionSessionGenerator.generate_from_document(doc_evolution, user, Date.parse("11-12-2019"))
 
 RevisionSessionGenerator.generate_from_document(doc_business_ethics, user, Date.parse("09-12-2019"))
 
