@@ -30,17 +30,23 @@
 
 
   <div>
-<ul class="nav flex-column mb-0">
+<ul class="nav flex-column mb-1">
   <li class="nav-item">
-      <%= link_to new_document_path, { :class=>"nav-link font-italic" } do %>
+      <%= link_to new_document_path, { :class=>"nav-link" } do %>
         <i class="fas fa-plus mr-3 fa-fw circle-icon" ></i> New Document
       <% end %>
     </li>
 </ul>
 </div>
-
-  <p class="text-gray font-weight-bold text-uppercase px-3 small pb-4 mb-0 pt-4">Main</p>
-
+<div>
+<ul class="nav flex-column mb-4">
+  <li class="nav-item">
+      <%= link_to revision_sessions_path, { :class=>"nav-link" } do %>
+        <i class="fas mr-3 fa-fw circle-icon" ><span class="notification-number font-weight-bold"><%= RevisionSession.todays_sessions(current_user) %></span></i><%= "Session".pluralize(RevisionSession.todays_sessions(current_user)) %> Remaining
+      <% end %>
+    </li>
+</ul>
+</div>
   <ul class="nav flex-column mb-0">
      <li class="nav-item">
       <%= link_to revision_sessions_path, { :class=>"nav-link font-italic" } do %>
