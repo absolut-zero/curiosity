@@ -1,56 +1,40 @@
 <div class="row">
-<div class="col-md-8 offset-md-2 form-content">
+<div class="col-md-11 offset-md-1 form-content">
 <h2>Below are all the documents</h2>
-<ul>
-  <% @documents.each do |document| %>
-  <li>
-    <h4><%= link_to document.name, document_path(document) %></h4>
-    <p><small><%= link_to "Delete", document_path(document), method: :delete, data: { confirm: 'Are you sure?' } %>
+<div class="card-all-documents-container">
+
+
+<% @documents.each do |document| %>
+
+<div class="card-all-documents">
+
+  <div class="card-all-documents-text ">
+
+    <div class="card-all-documents-text title col-md-10 offset-md-1">
+    <h4><%= link_to document.name, document_path(document), class: "btn btn-outline-primary white-btn" %></h4>
+    </div>
+
+    <div class="card-all-documents-text icons">
+
+    <%= link_to '<i class="fas fa-trash-alt"></i><span style="padding-left: 10px;">| Delete Document</span>'.html_safe, document_path(document), method: :delete, data: { confirm: 'Are you sure?' } %>
+    <br>
     <% unless document.concepts.length.zero? %>
-       | <%= link_to "Revise", revision_sessions_doc_path(document), method: :post %> | <%= link_to "Delete Concepts", document_concepts_path(document), method: :delete, data: { confirm: 'Are you sure?' } %>
-    <% end %>
-    </small></p>
-  </li>
-<% end %>
-</ul>
+    <%= link_to '<i class="fas fa-glasses"></i><span style="padding-left: 6px;">| Revise Concepts</span>'.html_safe, revision_sessions_doc_path(document), method: :post %>
+    <br>
+    <%= link_to '<i class="fas fa-trash-alt"></i><span style="padding-left: 10px;">| Delete Concepts</span>'.html_safe, document_concepts_path(document), method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% end %>
+    </div>
+  </div>
+
 </div>
-</div>
-<br><br>
-
-
-<div class="container-form">
-<div class="row">
-<div class="col-md-8 offset-md-2 form-content">
-<h2>Create a new folder</h2>
-<div class="content">
-<%= simple_form_for @folder do |f| %>
-  <%= f.error_notification %>
-  <div class="form-inputs">
-    <%= f.input :name %>
-  </div>
-  <div class="form-action btn btn-primary">
-    <%= f.button :submit %>
-  </div>
-<% end %>
-<br>
-<h2>Create a new document</h2>
-<%= simple_form_for @document do |f| %>
-  <%= f.error_notification %>
-<!--   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
- -->
-  <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :folder, collection: Folder.all.order(:name) %>
-    <%= f.input :notes %>
-  </div>
-
-  <div class="form-action btn btn-primary">
-    <%= f.button :submit %>
-  </div>
 
 <% end %>
+
 </div>
+
 </div>
+
 </div>
-</div>
+
+
 
