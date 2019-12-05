@@ -11,12 +11,12 @@
 
 
 <!--     <li class="nav-item"> -->
- <!--      <a href="" class="nav-link text-dark font-italic dropdown-toggle collapsible" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> -->
+ <!--      <a href="" class="nav-link text-dark font-weight-bold dropdown-toggle collapsible" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> -->
 
 
       <img src="https://microhealth.com/assets/images/illustrations/personal-user-illustration-@2x.png" alt="..." width="90px" class="mr-3 rounded-circle img-thumbnail d-inline" id="avatar">
 
-        <h4 class="m-0 d-inline"><%= current_user.first_name %>  </h4>
+        <h4 class="m-0 d-inline"><%= current_user.first_name %></h4>
 
           <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
             <%= link_to "Edit Profile", edit_user_registration_path, class: "dropdown-item" %>
@@ -33,7 +33,7 @@
 <ul class="nav flex-column mb-3">
   <li class="nav-item">
       <%= link_to new_document_path, { :class=>"nav-link" } do %>
-        <i class="fas fa-plus mr-3 fa-fw circle-icon" ></i> New Document
+        <i class="fas fa-plus mr-3 fa-fw circle-icon" ></i><span class="font-weight-bold">New Document</span>
       <% end %>
     </li>
 </ul>
@@ -42,27 +42,27 @@
 </div>
   <ul class="nav flex-column mb-0">
     <li class="nav-item">
-      <%= link_to root_path, { :class=>"nav-link font-italic" } do %>
+      <%= link_to root_path, { :class=>"nav-link font-weight-bold" } do %>
         <i class="fas fa-tachometer-alt mr-3 fa-fw" ></i> Dashboard
       <% end %>
     </li>
      <li class="nav-item">
-      <%= link_to revision_sessions_path, { :class=>"nav-link font-italic" } do %>
-        <i class="fas fa-glasses mr-3 fa-fw"></i><span style="margin-left: -1px;"> Revision Schedule</span><i class="fas notification-icon ml-4" ><span class="notification-number font-weight-bold" ><%= RevisionSession.todays_sessions(current_user) %></span></i>
+      <%= link_to revision_sessions_path, { :class=>"nav-link font-weight-bold" } do %>
+        <i class="fas fa-glasses mr-3 fa-fw"></i><span style="margin-left: -1px;"> Revision Schedule</span><i class="fas notification-icon ml-4" ><span class="notification-number font-weight-weight-bold" ><%= RevisionSession.todays_sessions(current_user) %></span></i>
       <% end %>
     </li>
     <li class="nav-item">
-      <%= link_to search_path, { :class=>"nav-link font-italic" } do %>
+      <%= link_to search_path, { :class=>"nav-link font-weight-bold" } do %>
         <i class="fas fa-sticky-note mr-3 fa-fw" ></i> Concepts
       <% end %>
     </li>
     <li class="nav-item">
-      <%= link_to tags_path, { :class=>"nav-link font-italic" } do %>
+      <%= link_to tags_path, { :class=>"nav-link font-weight-bold" } do %>
         <i class="fas fa-tag mr-3 fa-fw" ></i> Tags
       <% end %>
     </li>
      <li class="nav-item">
-      <%= link_to archive_path, { :class=>"nav-link font-italic" } do %>
+      <%= link_to archive_path, { :class=>"nav-link font-weight-bold" } do %>
         <i class="fas fa-archive mr-3 fa-fw" aria-hidden="true"></i> Archive
       <% end %>
     </li>
