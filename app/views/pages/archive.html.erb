@@ -9,27 +9,32 @@
     <table class="table table-hover">
       <thead>
         <tr>
-          <th style="width: 20%" scope="col">Document Name</th>
-          <th style="width: 20%" scope="col">Tags</th>
-          <th style="width: 20%" scope="col">Retention</th>
+          <th style="width: 80%" scope="col">Document Name and tags</th>
           <th style="width: 20%" scope="col">Completed at</th>
-          <th style="width: 20%" scope="col"></th>
         </tr>
       </thead>
+
       <tbody>
+
         <% @archived_revision_sessions.each do |session| %>
-            <tr>
+            <tr class="revision-row row-today">
               <td>
-                <%= link_to "Delete ", revision_session_path(session), method: :delete, data: { confirm: 'Are you sure?' }%>
                 <%= session.revision_session_concepts.first.concept.document.name %>
-              </td>
-              <% tags = [] %>
+                <div class="revision-tags">
+                  <% tags = [] %>
               <% session.revision_session_concepts.each { |con| tags << con.concept.tags } %>
               <% tags = tags.flatten.uniq %>
               <% tags_print = "" %>
               <% tags.each { |tag| tags_print += "#{tag.name} " } %>
-              <td><%= tags_print %></td>
-              <td>xx%</td>
+
+              <% tags_print.split.each do |tag| %>
+                  <div class="revision-tag">
+                <%=tag %>
+                  </div>
+                <% end %>
+              </div>
+              </td>
+
               <td><% days_since = (Date.today - Date.new((session.completed_at.year), (session.completed_at.month), (session.completed_at.day))).to_i %>
                 <% if days_since == 0 %>
                   Today
@@ -39,7 +44,6 @@
                   <%= days_since %> days ago
                 <% end %>
               </td>
-              <td><%= link_to "Start Revision", revision_session_path(session) %></td
             </tr>
         <% end %>
       </tbody>
