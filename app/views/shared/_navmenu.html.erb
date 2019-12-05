@@ -14,7 +14,7 @@
  <!--      <a href="" class="nav-link text-dark font-italic dropdown-toggle collapsible" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> -->
 
 
-      <img src="https://spectator.imgix.net/content/uploads/2016/05/iStock_000076568217_Large.jpg?auto=compress,enhance,format&crop=faces,entropy,edges&fit=crop&w=620&h=413" alt="..." width="100" class="mr-3 rounded-circle img-thumbnail d-inline" id="avatar">
+      <img src="https://microhealth.com/assets/images/illustrations/personal-user-illustration-@2x.png" alt="..." width="90px" class="mr-3 rounded-circle img-thumbnail d-inline" id="avatar">
 
         <h4 class="m-0 d-inline"><%= current_user.first_name %>  </h4>
 
@@ -48,7 +48,7 @@
     </li>
      <li class="nav-item">
       <%= link_to revision_sessions_path, { :class=>"nav-link font-italic" } do %>
-        <i class="fas fa-glasses mr-3 fa-fw" ></i>Revision Schedule<i class="fas notification-icon ml-4" ><span class="notification-number font-weight-bold"><%= RevisionSession.todays_sessions(current_user) %></span></i>
+        <i class="fas fa-glasses mr-3 fa-fw"></i><span style="margin-left: -1px;"> Revision Schedule</span><i class="fas notification-icon ml-4" ><span class="notification-number font-weight-bold" ><%= RevisionSession.todays_sessions(current_user) %></span></i>
       <% end %>
     </li>
     <li class="nav-item">
@@ -67,6 +67,9 @@
       <% end %>
     </li>
   </ul>
+
+  <!-- second section -->
+
   <p class="text-gray font-weight-bold text-uppercase px-3 small py-4 mb-0">My Documents</p>
 
   <ul class="nav flex-column mb-0">
@@ -86,14 +89,16 @@
     <li class="nav-item">
       <a href="" class="nav-link collapsible" role="button" data-toggle="dropdown">
         <i class="fas fa-caret-right" id="arrow-folder"></i>
-                <%= folder.name %>
+                <span style="margin-left: 5px"> <%= folder.name %><span>
             </a>
 
 
     <!-- Creating a dropdown view per document -->
     <div class="content-collapsible" aria-labelledby="dropdownMenuLink">
       <% Document.where(folder_id: folder).each do |document| %>
-        <a class="" href="<%= document_path(document) %>"><%= document.name  %></a><br>
+
+        <a style="padding-bottom: 7px; display: inline-block;"  href="<%= document_path(document) %>"><%= document.name  %></a>
+        <br>
       <% end %>
     </div>
 
