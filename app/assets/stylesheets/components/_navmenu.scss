@@ -6,13 +6,13 @@
   position: fixed;
   top: 0;
   left: 0;
-  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+  // box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
   transition: all 0.4s;
   overflow: auto;
   // background-image: url('brown-effect.png');
-  background-position: top;
-  background-repeat: repeat;
-  background-color: $white;
+  // background-position: top;
+  // background-repeat: repeat;
+  background-color: $orange;
   padding-bottom: 45px;
 
 }
@@ -26,7 +26,7 @@
 }
 
 .nav-link {
-  color: #181548;
+  color: white;
 }
 
 .notification-number {
@@ -35,13 +35,13 @@
 }
 
 .nav-link:hover {
-  opacity: 0.8;
+  color: #181548;
 }
 
 #avatar {
   width: 80px;
   height: 80px;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 /* for toggle behavior */
