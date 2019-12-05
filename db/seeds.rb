@@ -73,7 +73,7 @@ doc_js = Document.create!(
   notes: "Javascript is an implementation of ECMAScript
 
 
-  "Hello Le Wagon"      // string
+  \"Hello Le Wagon\"      // string
   'Hello Le Wagon'      // string
 
   42                    // number (includes floats & ints)
@@ -82,7 +82,7 @@ doc_js = Document.create!(
   true || false         // boolean
 
 
-  typeof("Hello")   // => String
+  typeof(\"Hello\")   // => String
 
 
   { key: 'value' };     // Object
@@ -93,7 +93,7 @@ doc_js = Document.create!(
 
   // lowerCamelCase
 
-  const firstName = "Ameya";",
+  const firstName = \"Ameya\";",
   user: user
 )
 
