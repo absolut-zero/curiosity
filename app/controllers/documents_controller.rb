@@ -28,7 +28,7 @@ class DocumentsController < ApplicationController
       end
     else
       if @document.save
-        redirect_to document_path(@document)
+        redirect_to root_path
       else
         render :new
       end
@@ -38,9 +38,6 @@ class DocumentsController < ApplicationController
   def update
     @document = Document.find(params[:id])
     @document.user = current_user
-    unless params[:document][:folder] == ''
-      @document.folder = Folder.find(params[:document][:folder])
-    end
     if params[:save_and_create]
       if @document.update(document_params)
         redirect_to document_concepts_path(@document)
@@ -48,8 +45,11 @@ class DocumentsController < ApplicationController
         render :show
       end
     else
+      unless params[:document][:folder] == ''
+        @document.folder = Folder.find(params[:document][:folder])
+      end
       if @document.update(document_params)
-        redirect_to document_path(@document)
+        redirect_to root_path
       else
         render :show
       end

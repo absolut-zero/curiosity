@@ -33,7 +33,7 @@ User.destroy_all
 p "Creating new users..."
 
 user = User.create!(
-  first_name: "User",
+  first_name: "Bob",
   last_name: "User",
   email: "user@user.com",
   password: "password",
