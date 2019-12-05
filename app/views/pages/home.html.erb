@@ -29,7 +29,7 @@
     <table class="table table-hover">
       <thead>
         <tr>
-               <th style="width: 60%" scope="col">Document Name</th>
+          <th style="width: 60%" scope="col">Document Name</th>
           <th style="width: 20%" scope="col">Scheduled for</th>
           <th style="width: 20%" scope="col">Scheduled for</th>
         </tr>
@@ -44,13 +44,7 @@
             <tr class="revision-row row-future">
           <% end %>
               <td>
-                <a href="" class="nav-link d-inline" role="button" data-toggle="dropdown">
-                <i class="fas fa-ellipsis-v"></i></a>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <%= link_to "Delete ", revision_session_path(session), class: "dropdown-item", method: :delete, data: { confirm: 'Are you sure?' }%>
-                <%= link_to "Start Revision", revision_session_path(session), class: "dropdown-item"%>
-              </div>
-                <%= session.revision_session_concepts.first.concept.document.name %>
+                <h3><%= session.revision_session_concepts.first.concept.document.name %></h3>
             <br>
               <div class="revision-tags">
                 <% tags = [] %>
@@ -69,15 +63,15 @@
 
               <td><% days_left =(Date.new((session.scheduled_at.year), (session.scheduled_at.month), (session.scheduled_at.day)) - Date.today).to_i %>
                 <% if days_left == 0 %>
-                  Today
+                  Schduled: Today
                 <%  elsif days_left == 1 %>
-                  Tomorrow
+                  Schduled: Tomorrow
                 <%  elsif days_left == -1 %>
-                  Yesterday
+                  Schduled: Yesterday
                 <%  elsif days_left < -1 %>
-                  <%= - days_left %> days ago
+                  Schduled: <%= - days_left %> days ago
                 <% else %>
-                  In <%= days_left %> days
+                  Schduled: In <%= days_left %> days
                 <% end %>
               </td>
 
