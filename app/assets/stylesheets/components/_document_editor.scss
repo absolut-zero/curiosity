@@ -11,6 +11,7 @@
     background: transparent;
     position: relative;
     z-index: 1;
+    resize: none;
 
     &:focus {
       background: transparent;
@@ -92,14 +93,12 @@
 
     input {
       background: white;
+      margin-right: 10px;
     }
 
     select {
-      -webkit-appearance: none;
       appearance: none;
       background: none;
-      padding: 0;
-      border: 0;
       margin-right: 10px;
 
       &:focus {
