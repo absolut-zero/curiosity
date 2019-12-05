@@ -26,11 +26,20 @@
 .filter-btn {
   align-self: center;
   text: bolder;
-  margin-top: 35px;
+  margin-top: 33px;
 }
 
 .filter-col {
   padding: 10px;
   margin: 0px;
   width: 33%;
+}
+
+.search-content {
+  position: relative;
+}
+
+.btn-revise-search {
+  position: absolute;
+  right: 12px;
 }
