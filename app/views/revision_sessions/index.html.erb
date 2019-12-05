@@ -1,11 +1,6 @@
 <h1>My Revisions Schedule</h1>
 <% if user_signed_in? %>
 
-  <div align="right" class="px-3">
-    Start your revisions
-  <a href="#"><i class="fas fa-play circle-icon"></i></a>
-  </div>
-
   <div class="table-responsive-md">
     <table class="table table-hover">
       <thead>
@@ -64,7 +59,11 @@
                 <% end %>
               </td>
 
-              <td style="text-align: right;"><%= link_to "Start Revision", revision_session_path(session), class: "revision-button" %></td>
+              <td style="text-align: right;">
+                <% if session.scheduled_at <= Date.today %>
+                  <%= link_to "Start Revision", revision_session_path(session), class: "revision-button" %>
+                <% end %>
+              </td>
             </tr>
 
         <% end %>
