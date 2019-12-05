@@ -46,6 +46,7 @@
     <div class="final-card">
     <%= link_to "Finish Session", revision_session_path(id: @revision_session), method: :put, class: "revision-button finished-session"%>
     <% if @next_session %>
+
     </div>
     <div class="final-card">
     <%= link_to "Save & Continue Today's Revision", revision_session_path(id: @revision_session, save_and_continue: "save_and_continue"), method: :put, class: "revision-button continue-to-next-session"  %>

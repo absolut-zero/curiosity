@@ -42,7 +42,6 @@
 <% else %>
 
   <% unless @document.end_at.nil? %>
-    <p>Schedule ends at: <%= @document.end_at %></p>
   <% end %>
   <%= simple_form_for @document, url: document_path(@document) do |f| %>
     <div class="new-document-page">
