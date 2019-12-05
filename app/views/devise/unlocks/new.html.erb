@@ -1,3 +1,7 @@
+
+<div class="row">
+<div class="col-md-10 offset-md-1 form-content">
+
 <h2>Resend unlock instructions</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f| %>
@@ -17,3 +21,5 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+</div>
+</div>
