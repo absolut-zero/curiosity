@@ -3,14 +3,8 @@
 }
 
 .filter-container {
-  min-height: 160px;
-  margin: 20px auto;
+  background: white;
   padding: 20px;
-  text-align: center;
-  background-color: $dark-blue-faded;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  border-radius: 4px;
-
 }
 
 .filter-inner-container {
@@ -38,5 +32,5 @@
 .filter-col {
   padding: 10px;
   margin: 0px;
-  width: 250px;
+  width: 33%;
 }

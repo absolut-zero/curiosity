@@ -5,7 +5,7 @@
     <div class="new-document-page">
       <div class="new-document-page-header">
         <div class="folder-date">
-          <%= f.input :folder, collection: Folder.all.order(:name), label: "Folder:" %>
+          <%= f.input :folder, collection: Folder.all.order(:name), label: false, prompt: "Choose folder" %>
           <%= f.input :end_at, as: :string, label: "Due:", required: false, input_html: {class: "datepicker"} %>
         </div>
         <%= f.error_notification %>
@@ -34,7 +34,7 @@
     <div class="new-document-page">
       <div class="new-document-page-header">
         <div class="folder-date">
-          <%= f.input :folder, collection: Folder.all.order(:name), label: "Folder:", value: "@document.folder" %>
+          <%= f.input :folder, collection: Folder.all.order(:name), label: false, value: "@document.folder", prompt: "Choose folder" %>
           <%= f.input :end_at, as: :string, label: "Due:", required: false, input_html: {class: "datepicker"}, value: "@document.end_at" %>
         </div>
         <%= f.error_notification %>

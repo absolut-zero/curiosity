@@ -69,8 +69,8 @@
 
 .revision-button {
 text-align: center;
-padding: 5px 10px;
 background-color: $pink;
+border: 2px solid darken($pink, 20);
 }
 
 .revision-tag {

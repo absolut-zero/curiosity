@@ -3,10 +3,6 @@
 <%= simple_form_for @document do |f| %>
   <div class="new-document-page">
     <div class="new-document-page-header">
-      <div class="folder-date">
-        <%= f.input :folder, collection: Folder.all.order(:name), label: "Folder:" %>
-        <%= f.input :end_at, as: :string, label: "Due:", required: false, input_html: {class: "datepicker"} %>
-      </div>
       <%= f.error_notification %>
       <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
       <div class="save-buttons">
@@ -15,11 +11,17 @@
       </div>
     </div>
     <div class="new-document-white-page">
-      <div class="new-document-name">
-        <%= f.input :name, placeholder: 'Untitled Document', label: false, wrapper_html: { class: 'document-name-input' } %>
+      <div class="document-editor-toolbar">
+        <div class="document-editor-name">
+          <%= f.input :name, placeholder: 'Untitled Document', label: false, wrapper_html: { class: 'document-name-input' } %>
+        </div>
+         <div class="document-editor-meta">
+            <%= f.input :folder, collection: Folder.all.order(:name), label: false, prompt: "Choose folder" %>
+            <%= f.input :end_at, as: :string, label: false, required: false, input_html: {class: "datepicker"} %>
+          </div>
       </div>
       <div class="js-document-editor new-document-page-editor document-editor">
-        <%= f.input :notes, wrapper_html: { class: 'document-editor-input' }, input_html: { class: 'js-notes-input' } %>
+        <%= f.input :notes, wrapper_html: { class: 'document-editor-input' }, input_html: { class: 'js-notes-input' }, placeholder: 'Type your brainwaves here...' %>
         <div class="js-notes-display document-editor-text"></div>
       </div>
     </div>
