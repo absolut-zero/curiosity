@@ -2,16 +2,16 @@
 <div class="col-md-10 offset-md-1 form-content">
 <h1 style="text-align: center">
   <% if Time.now.hour >= 12 %>
-    Good Evening, <%= current_user.first_name %>
+    🌝 Good Evening, <%= current_user.first_name %>
   <% elsif Time.now.hour >= 12 %>
-    Good Afternoon, <%= current_user.first_name %>
+    🌞 Good Afternoon, <%= current_user.first_name %>
   <% else %>
-    Good Morning, <%= current_user.first_name %>
+    🌅 Good Morning, <%= current_user.first_name %>
   <% end %>
 </h1>
 <br>
 <div class="home-container">
-  <h3>Your Drafts</h3>
+  <h3>✏️ Your Drafts</h3>
 <div class="card-small card-draft-documents">
   <div class="card-small-text card-draft-documents-text ">
 
@@ -30,7 +30,7 @@
 </div>
 
 <div class="card-large">
-<h3>Today's Revision Schedule</h3>
+<h3>🗓️ Today's Revision Schedule</h3>
   <div class="table-responsive-md">
     <table class="table table-hover">
       <thead>
@@ -50,7 +50,7 @@
             <tr class="revision-row row-future">
           <% end %>
               <td>
-                <h3><%= session.revision_session_concepts.first.concept.document.name %></h3>
+                <h3>🔎 <%= session.revision_session_concepts.first.concept.document.name %></h3>
             <br>
               <div class="revision-tags">
                 <% tags = [] %>
@@ -95,7 +95,3 @@
 </div>
 </div>
 </div>
-
-
-
-
