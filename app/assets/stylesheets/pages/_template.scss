@@ -8,26 +8,28 @@
 }
 
 .dark-blue-text {
-  color: #181548;
+  color: $dark-blue;
 }
 
-.orange-text {
-  color: #F5B335;
+.pink-text {
+  color: $pink;
 }
 
 .light-blue-text{
-  color: #B6DCE2;
+  color: $light-blue;
 }
 
+
+
 /* BACKGROUND CSS */
-.orange-background {
- background-color: #F5B335;
+.pink-faded-background {
+ background-color: $pink-faded;
  width: 100%;
  height: 400px;
 }
 
-.light-blue-background {
- background-color: #B6DCE2;
+.light-blue-faded-background {
+ background-color: $light-blue-faded;
  width: 100%;
  height: 400px;
 }
@@ -38,8 +40,8 @@
  height: 400px;
 }
 
-.dark-blue-background {
-  background-color: #181548;
+.dark-blue-faded-background {
+background-color: $dark-blue-faded;
  width: 100%;
  height: 400px;
 }
@@ -62,8 +64,8 @@
 
 
 .light-blue-btn {
-  color: #B6DCE2;
-  border-color: #B6DCE2;
+  color: $light-blue;
+  border-color: $light-blue;
 }
 
 .dark-blue-btn {
@@ -71,9 +73,9 @@
   border-color: #181548;
 }
 
-.orange-btn {
-  color: #F5B335;
-  border-color: #F5B335;
+.pink-btn {
+  color: $pink;
+  border-color: $pink;
 }
 
 .white-background-btn {
@@ -88,15 +90,15 @@
   border-color: #181548;
 }
 
-.orange-background-btn {
+.pink-background-btn {
     color: white;
-  background-color: #F5B335;
-  border-color: #F5B335;
+  background-color: $pink;
+  border-color: $pink;
 }
 
 .light-blue-background-btn {
     color: #181548;
-  background-color: #B6DCE2;
-  border-color: #B6DCE2;
+  background-color: $light-blue;
+  border-color: $light-blue;
 }
 
