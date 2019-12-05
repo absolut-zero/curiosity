@@ -21,9 +21,7 @@
     <br>
     <% unless document.concepts.length.zero? %>
     <%= link_to '<i class="fas fa-glasses"></i><span style="padding-left: 6px;">| Revise Concepts</span>'.html_safe, revision_sessions_doc_path(document), method: :post %>
-    <br>
-    <%= link_to '<i class="fas fa-trash-alt"></i><span style="padding-left: 10px;">| Delete Concepts</span>'.html_safe, document_concepts_path(document), method: :delete, data: { confirm: 'Are you sure?' } %>
-      <% end %>
+    <% end %>
     </div>
   </div>
 
