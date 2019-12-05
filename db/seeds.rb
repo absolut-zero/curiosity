@@ -342,17 +342,17 @@ con_evolution2 = Concept.create!(
 
 p "Tagging concepts..."
 
-con_business_ethics1.tags << [tag_law, tag_ethics, tag_capitalism]
+con_business_ethics1.tags << [tag_law, tag_ethics]
 
-con_business_ethics2.tags << [tag_law, tag_ethics, tag_capitalism]
+con_business_ethics2.tags << [tag_law, tag_ethics]
 
-con_alleles1.tags << [tag_genome, tag_genetics, tag_biology]
+con_alleles1.tags << [tag_genetics, tag_biology]
 
-con_alleles2.tags << [tag_genome, tag_genetics, tag_biology]
+con_alleles2.tags << [tag_genetics, tag_biology]
 
-con_evolution1.tags << [tag_genome, tag_genetics, tag_biology]
+con_evolution1.tags << [tag_genetics, tag_biology]
 
-con_evolution2.tags << [tag_genome, tag_genetics, tag_biology]
+con_evolution2.tags << [tag_genetics, tag_biology]
 
 p "Creating new revision sessions from documents..."
 
