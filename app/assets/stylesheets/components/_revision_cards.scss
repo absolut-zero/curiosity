@@ -96,7 +96,7 @@
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
      &:hover{
     opacity: 0.8;
-    background: #FD3E81;
+    background: $pink;
     color: white;
      }
     }
@@ -115,7 +115,7 @@
          text-align: center;
          display: inline-block;
         &:hover {
-          background: #FD3E81;
+          background: $pink;
           color: white;
           border-radius: 50%;
         }
