@@ -9,8 +9,8 @@
         <div class="card-white">
           <%= f.input :prompt, input_html: { name: 'concept[][prompt]', value: concept.prompt } %>
           <%= f.input :content, input_html: { name: 'concept[][content]', value: concept.content } %>
-
-          <select class="js-input-tags" name="concept[][tags][]" multiple>
+          <label for="concept[][tags][]">Tags</label>
+          <select class="js-input-tags" name="concept[][tags][]" multiple >
             <% Tag.all.each do |tag| %>
               <option value="<%= tag.id %>"><%= tag.name %></option>
             <% end %>
