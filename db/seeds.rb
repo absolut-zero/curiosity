@@ -40,15 +40,6 @@ user = User.create!(
   password_confirmation: "password"
 )
 
-
-llama = User.create!(
-  first_name: "Larry",
-  last_name: "da Llama",
-  email: "larry@llama.com",
-  password: "password",
-  password_confirmation: "password"
-)
-
 student = User.create!(
   first_name: "Student",
   last_name: "Student",
@@ -59,31 +50,6 @@ student = User.create!(
 
 p "Creating new folders..."
 
-
-fol_llama_101 = Folder.create!(
-  name: "Llama 101",
-  user: llama
-)
-
-fol_llama_does_startups = Folder.create!(
-  name: "Llama Does Startups",
-  user: llama
-)
-
-fol_llama_does_love = Folder.create!(
-  name: "Llama Does Love",
-  user: llama
-)
-
-fol_llama_does_health = Folder.create!(
-  name: "Llama Does Health",
-  user: llama
-)
-
-fol_llama_does_friends = Folder.create!(
-  name: "Llama Does Friends",
-  user: llama
-)
 
 fol_biology = Folder.create!(
   name: "Biology",
@@ -102,97 +68,34 @@ fol_financial_maths = Folder.create!(
 
 p "Creating new documents..."
 
-doc_human_language = Document.create!(
-  name: "How to speak to Hoomans",
-  notes: "1",
-  folder: fol_llama_101,
-  user: llama
+doc_js = Document.create!(
+  name: "Javascript",
+  notes: "Javascript is an implementation of ECMAScript
+
+
+  "Hello Le Wagon"      // string
+  'Hello Le Wagon'      // string
+
+  42                    // number (includes floats & ints)
+  3.14                  // number (includes floats & ints)
+
+  true || false         // boolean
+
+
+  typeof("Hello")   // => String
+
+
+  { key: 'value' };     // Object
+  { 'key': 'value' };   // Object (the exact same)
+
+  [1, 2, true, 'hi'];   // Array
+
+
+  // lowerCamelCase
+
+  const firstName = "Ameya";",
+  user: user
 )
-
-doc_grass = Document.create!(
-  name: "Weed(s)",
-  notes: "1",
-  folder: fol_llama_101,
-  user: llama
-)
-
-doc_driving = Document.create!(
-  name: "How to drive",
-  notes: "1",
-  folder: fol_llama_101,
-  user: llama
-)
-
-doc_vc = Document.create!(
-  name: "Asking VCs 4 Moneyz",
-  notes: "1",
-  folder: fol_llama_does_startups,
-  user: llama
-)
-
-doc_bc_ai = Document.create!(
-  name: "Blockchain AI 101",
-  notes: "1",
-  folder: fol_llama_does_startups,
-  user: llama
-)
-
-doc_good_grass = Document.create!(
-  name: "Finding good grass",
-  notes: "1",
-  folder: fol_llama_does_love,
-  user: llama
-)
-
-doc_girls = Document.create!(
-  name: "Finding good Girl(s)",
-  notes: "1",
-  folder: fol_llama_does_love,
-  user: llama
-)
-
-doc_friends = Document.create!(
-  name: "Central Perk Ted Talk",
-  notes: "1",
-  folder: fol_llama_does_friends,
-  user: llama
-)
-
-doc_how_you = Document.create!(
-  name: "How you doin'?",
-  notes: "1",
-  folder: fol_llama_does_friends,
-  user: llama
-)
-
-doc_spitting = Document.create!(
-  name: "Spitting 101",
-  notes: "Defensive measure:
-
-  When a girl llama spits on you, it means she's not interested. Stay away Larry.
-
-
-  Spitting on Hoomans:
-
-  Only spit on hoomans if you feel threatened Larry. They are meant to be your friends.
-
-
-  Training:
-
-  A chad llama can spit accurately over 15 feet. This is your goal Larry. Train hard mate.
-
-
-  How to spit:
-
-  1. Pull ears back flat against head.
-  2. Stare at your target.
-  3. Raise your chin.
-  4. Begin to gurgle.
-  5. It's go time!",
-  folder: fol_llama_101,
-  user: llama
-)
-
 
 doc_evolution = Document.create!(
   name: "Evolution",
@@ -371,32 +274,8 @@ doc_interest_rates = Document.create!(
 
 p "Creating new tags..."
 
-tag_grass = Tag.create!(
-  name: "Grass"
-  )
-
-tag_girls = Tag.create!(
-  name: "Girls"
-  )
-
-tag_fur = Tag.create!(
-  name: "Fur"
-  )
-
-tag_hooman = Tag.create!(
-  name: "Hooman"
-  )
-
-tag_blockchain = Tag.create!(
-  name: "Blockchain"
-  )
-
 tag_biology = Tag.create!(
   name: "Biology"
-  )
-
-tag_capitalism = Tag.create!(
-  name: "Capitalism"
   )
 
 tag_genetics = Tag.create!(
@@ -415,8 +294,8 @@ tag_finance = Tag.create!(
   name: "Finance"
   )
 
-tag_genome = Tag.create!(
-  name: "Genome"
+tag_javascript = Tag.create!(
+  name: "Javascript"
   )
 
 p "Creating new concepts..."
@@ -461,75 +340,7 @@ con_evolution2 = Concept.create!(
   document: doc_evolution
   )
 
-con_llama1 = Concept.create!(
-  prompt: "What to remember about girls?",
-  content: "Defensive measure:
-
-  When a girl llama spits on you, it means she's not interested. Stay away Larry.",
-  document: doc_spitting
-  )
-
-con_llama2 = Concept.create!(
-  prompt: "Do you spit on hoomans?",
-  content: "Spitting on Hoomans:
-
-  Only spit on hoomans if you feel threatened Larry. They are meant to be your friends.",
-  document: doc_spitting
-  )
-
-con_llama3 = Concept.create!(
-  prompt: "Guinness record for spitting (llama category)?",
-  content: "Training:
-
-  A chad llama can spit accurately over 15 feet. This is your goal Larry. Train hard mate.",
-  document: doc_spitting
-  )
-
-con_llama4 = Concept.create!(
-  prompt: "Steps for initiating and executing a good spit?",
-  content: "How to spit:
-
-  1. Pull ears back flat against head.
-  2. Stare at your target.
-  3. Raise your chin.
-  4. Begin to gurgle.
-  5. It's go time!",
-  document: doc_spitting
-  )
-
-con_llama5 = Concept.create!(
-  prompt: "Steps for initiating and executing a good spit?",
-  content: "How to spit:
-
-  1. Pull ears back flat against head.
-  2. Stare at your target.
-  3. Raise your chin.
-  4. Begin to gurgle.
-  5. It's go time!",
-  document: doc_girls
-  )
-
-con_llama6 = Concept.create!(
-  prompt: "Steps for initiating and executing a good spit?",
-  content: "How to spit:
-
-  1. Pull ears back flat against head.
-  2. Stare at your target.
-  3. Raise your chin.
-  4. Begin to gurgle.
-  5. It's go time!",
-  document: doc_vc
-  )
-
 p "Tagging concepts..."
-
-con_llama6.tags << [tag_capitalism, tag_hooman, tag_blockchain]
-
-con_llama5.tags << [tag_girls, tag_hooman]
-
-con_llama4.tags << [tag_girls, tag_hooman]
-
-con_llama3.tags << [tag_girls, tag_grass]
 
 con_business_ethics1.tags << [tag_law, tag_ethics, tag_capitalism]
 
@@ -545,24 +356,12 @@ con_evolution2.tags << [tag_genome, tag_genetics, tag_biology]
 
 p "Creating new revision sessions from documents..."
 
+RevisionSessionGenerator.generate_from_document(doc_alleles, user, Date.parse("05-12-2019"))
 
-RevisionSessionGenerator.generate_from_document(doc_spitting, llama, Date.parse("29-11-2019"))
+RevisionSessionGenerator.generate_from_document(doc_evolution, user, Date.parse("11-11-2019"))
 
-RevisionSessionGenerator.generate_from_document(doc_girls, llama, Date.parse("30-11-2019"))
-
-RevisionSessionGenerator.generate_from_document(doc_vc, llama, Date.parse("02-12-2019"))
-
-
-RevisionSessionGenerator.generate_from_document(doc_alleles, user, Date.parse("29-11-2019"))
-
-RevisionSessionGenerator.generate_from_document(doc_evolution, user, Date.parse("30-11-2019"))
-
-RevisionSessionGenerator.generate_from_document(doc_business_ethics, user, Date.parse("29-11-2019"))
+RevisionSessionGenerator.generate_from_document(doc_business_ethics, user, Date.parse("09-12-2019"))
 
 p "Creating new revision sessions from tags..."
-
-RevisionSessionGenerator.generate_from_tags([tag_biology, tag_genetics], user)
-
-RevisionSessionGenerator.generate_from_tags([tag_capitalism, tag_finance], user)
 
 p "** // ALL DONE :D // **"
