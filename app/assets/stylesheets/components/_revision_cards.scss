@@ -48,6 +48,7 @@
 
     .revision-card-question {
       position: relative;
+      margin-right: 10px;
 
       textarea {
         position: absolute;
@@ -61,12 +62,21 @@
           box-shadow: none;
         }
       }
-      .revision-card-check-answer-button {
-        position: absolute;
-        bottom: 10px;
+      .revision-card-check-answer-button button {
+      position: absolute;
+        .answer-button {
+          margin-bottom: 10px;
+        }
       }
     }
+
+    .finished-session {
+      // color:red;
+    }
   }
+
+
+
   .revision-card-toolbar {
     position: absolute;
     width: 100%;
@@ -76,10 +86,26 @@
     align-items: center;
     justify-content: center;
 
+    button.revision-card-check-answer-button {
+    margin-bottom: 10px;
+    border-radius: 40px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    background-color: $white;
+    color: $pink;
+    border-color: transparent;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+     &:hover{
+    opacity: 0.8;
+    background: #FD3E81;
+    color: white;
+     }
+    }
+
     .revision-card-toolbar-overlay {
       background: white;
       border-radius: 40px;
-      box-shadow: 0 0 5px rgba(0,0,0,0.2);
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+      margin-bottom: 10px;
     }
     .btn {
       .fa {
@@ -100,3 +126,13 @@
     }
   }
 }
+
+.revision-card.final-card-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+
+}
+
+

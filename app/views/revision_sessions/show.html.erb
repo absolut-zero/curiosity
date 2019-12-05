@@ -14,16 +14,20 @@
         <h4><%= session_answer.revision_session_concept.concept.prompt %></h4>
 
         <div class="row">
-          <div class="col-md-6 revision-card-question">
+          <div class="col-md-6 revision-card-question" style="max-width: 48%">
             <%= f.input :response, input_html: { name: 'session_answer[response]', class: 'js-session-answer-response' }, label: false %>
-            <button class="js-check-answer-btn revision-card-check-answer-button btn btn-primary" type="button">Check answer</button>
+
           </div>
-          <div class="col-md-6 revision-card-answer">
+          <div class="col-md-6 revision-card-answer" style="max-width: 48%;padding-top: 10px;">
             <div class="d-none js-revision-answer">
               <%= simple_format(session_answer.revision_session_concept.concept.content) %>
             </div>
+
           </div>
         </div>
+          <div class="revision-card-toolbar answer-button" >
+            <button class="js-check-answer-btn revision-card-check-answer-button btn btn-primary" type="button">Check answer</button>
+            </div>
         <div class="js-revision-action-toolbar revision-card-toolbar d-none">
           <div class="revision-card-toolbar-overlay">
             <%= f.button :button, name: "session_answer[correct]",value: "true" do %>
@@ -37,12 +41,16 @@
       <% end %>
     </div>
   <% end %>
-  <div class="card-white js-final-card d-none revision-card">
-    <%= link_to "Finish Session", revision_session_path(id: @revision_session), method: :put %>
+
+  <div class="card-white js-final-card d-none revision-card final-card-container">
+    <div class="final-card">
+    <%= link_to "Finish Session", revision_session_path(id: @revision_session), method: :put, class: "revision-button finished-session"%>
     <% if @next_session %>
-    <br>
-    <%= link_to "Save & Continue Today's Revision", revision_session_path(id: @revision_session, save_and_continue: "save_and_continue"), method: :put %>
+    </div>
+    <div class="final-card">
+    <%= link_to "Save & Continue Today's Revision", revision_session_path(id: @revision_session, save_and_continue: "save_and_continue"), method: :put, class: "revision-button continue-to-next-session"  %>
     <% end %>
+  </div>
   </div>
 </div>
 </div>
