@@ -19,7 +19,6 @@ initSelect2();
 
 import { collapsibleContent } from '../plugins/collapsible';
 
-
 toggleNavmenu();
 
 selectize();
@@ -28,7 +27,6 @@ selectize();
 initRevisionSession('.js-revision-session');
 
 collapsibleContent();
-
 
 function addAutoResize() {
   document.querySelectorAll('textarea').forEach(function (element) {
