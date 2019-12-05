@@ -27,7 +27,7 @@
 }
 
 .card-draft-documents {
-  background-color: #181548 ; //
+  background-color: $dark-blue-faded ; //
   height: auto;
   justify-content: center;
   color: white;
@@ -67,9 +67,14 @@
   width: 100%;
 }
 
-.card-large .revision-button {
+.revision-button {
 text-align: center;
-padding: 3px 7px;
+padding: 5px 10px;
+background-color: $pink;
+}
+
+.revision-tag {
+  background-color: $dark-blue-faded;
 }
 
 
