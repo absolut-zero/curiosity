@@ -9,7 +9,7 @@
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
   transition: all 0.4s;
   overflow: auto;
-  background-image: url('brown-effect.png');
+  // background-image: url('brown-effect.png');
   background-position: top;
   background-repeat: repeat;
   background-color: $white;
@@ -31,7 +31,7 @@
 
 .notification-number {
   font-family: "Open Sans";
-  font-size: 16px;
+  font-size: 13px;
 }
 
 .nav-link:hover {
@@ -105,6 +105,17 @@
     text-align: center;
     line-height: 40px;
     vertical-align: middle;
+}
+
+.notification-icon {
+    background: $pink;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 21px;
+    vertical-align: middle;
+    offset-y: -5px;
 }
 
 .fas {
