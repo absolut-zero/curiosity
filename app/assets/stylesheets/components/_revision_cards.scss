@@ -3,11 +3,100 @@
   height: 500px;
 
   .revision-card {
+    display: flex;
+    flex-direction: column;
     position: absolute;
     top: 20px;
     left: 20px;
     bottom: 20px;
     right: 20px;
     transition: transform 2s;
+    padding: 30px;
+
+    form {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-group.hidden {
+      margin-bottom: 0;
+    }
+
+    .row {
+      flex: 1;
+    }
+
+    h4 {
+      padding-bottom: 15px;
+      border-bottom: 1px solid #ccc;
+      margin-bottom: 40px;
+    }
+
+    textarea {
+      resize: none;
+    }
+
+    textarea:disabled {
+      background: none;
+      border-color: transparent;
+    }
+
+    .revision-card-answer {
+      background: $document-blue;
+    }
+
+    .revision-card-question {
+      position: relative;
+
+      textarea {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        &:focus {
+          outline: none;
+          box-shadow: none;
+        }
+      }
+      .revision-card-check-answer-button {
+        position: absolute;
+        bottom: 10px;
+      }
+    }
+  }
+  .revision-card-toolbar {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .revision-card-toolbar-overlay {
+      background: white;
+      border-radius: 40px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    }
+    .btn {
+      .fa {
+         padding: 10px;
+         height: 36px;
+         width: 36px;
+         text-align: center;
+         display: inline-block;
+        &:hover {
+          background: #FD3E81;
+          color: white;
+          border-radius: 50%;
+        }
+      }
+    }
+    .fa {
+      color: $pink;
+    }
   }
 }

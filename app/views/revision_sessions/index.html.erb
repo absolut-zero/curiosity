@@ -24,14 +24,9 @@
             <tr class="revision-row row-future">
           <% end %>
               <td>
-                <a href="" class="nav-link d-inline" role="button" data-toggle="dropdown">
-                <i class="fas fa-ellipsis-v"></i></a>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <%= link_to "Delete ", revision_session_path(session), class: "dropdown-item", method: :delete, data: { confirm: 'Are you sure?' }%>
-                <%= link_to "Start Revision", revision_session_path(session), class: "dropdown-item"%>
-              </div>
+              <h3>
                 <%= session.revision_session_concepts.first.concept.document.name %>
-            <br>
+              </h3>
               <div class="revision-tags">
                 <% tags = [] %>
                 <% session.revision_session_concepts.each { |con| tags << con.concept.tags } %>
@@ -63,7 +58,9 @@
 
               <td style="text-align: right;">
                 <% if session.scheduled_at <= Date.today %>
-                  <%= link_to "Start Revision", revision_session_path(session), class: "revision-button" %>
+                  <%= link_to revision_session_path(session), class: "revision-button" do %>
+                    Start Revision <span class="fa fa-angle-right"></span>
+                  <% end %>
                 <% end %>
               </td>
             </tr>

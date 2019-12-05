@@ -9,7 +9,7 @@
 
 .new-document-page-header {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   .folder-date {
     width: 50%;
     display: flex;
@@ -40,12 +40,6 @@
 
 .new-document-name {
   margin-bottom: 40px;
-  input {
-    box-shadow: none;
-    &:focus {
-      box-shadow: none;
-    }
-  }
 }
 
 .update-buttons {

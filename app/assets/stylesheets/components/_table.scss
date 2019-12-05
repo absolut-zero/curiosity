@@ -23,7 +23,7 @@ opacity: 0.6;
 
 .table {
     border-collapse: separate;
-    border-spacing:0 20px;
+    border-spacing:0 8px;
 
 }
 
@@ -33,17 +33,19 @@ table{
 }
 
 .revision-tag {
-  background-color: #B6DCE2; /* Green */
-  border: none;
-  color: $white;
-  padding: 2px 13px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  border-radius: 4%;
-  margin: 5px;
-  font-size: 13px;
+  background-color: #B6DCE2;
+   border: none;
+   color: #fff;
+   padding: 3px 9px;
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
+   font-size: 16px;
+   border-radius: 4px;
+   margin: 5px 0px 5px 0;
+   font-size: 13px;
+   text-transform: uppercase;
+  font-size: 12px;
 }
 
 .table tbody td {
@@ -55,12 +57,13 @@ h1 {
 }
 
 .revision-button {
-    display: inline-block;
-    background: #181548;
-    padding: 10px 15px;
-    border-radius: 9px;
-    color: white;
-
+  display: inline-block;
+  background: #181548;
+  border-radius: 20px;
+  color: white;
+  margin: 0 14px 0 0;
+  font-size: 20px;
+  padding: 5px 15px;
 }
 
 .revision-button {
@@ -75,4 +78,9 @@ h1 {
 
 .table thead {
   display:none;
+}
+
+.table h3 {
+  font-size: 24px;
+
 }

@@ -3,8 +3,12 @@
 
 <div class="outer-container">
 
+
+<div id="search-content">
+<h1>Filter concepts</h1>
+
+
   <div class="filter-container">
-    <h2 align="center">Find your concepts and start a revision</h2>
     <%= form_tag search_path, method: :get do %>
       <div class="filter-inner-container">
         <div class="filter-col">
@@ -23,9 +27,6 @@
       </div>
     <% end %>
   </div>
-
-<div id="search-content">
-<h1>Filter concepts</h1>
 <% unless @concepts.nil? %>
 <% if @concepts.length > 0 %>
 <br>

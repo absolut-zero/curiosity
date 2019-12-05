@@ -6,25 +6,33 @@
   <% @session_answers.each_with_index do |session_answer, index| %>
     <div
       class="card-white js-revision-session-card revision-card"
-      style="z-index: <%= @session_answers.length - index %>; transform: rotate(<%= rand(-100..100) / 50.0 %>deg);"
+      style="z-index: <%= @session_answers.length - index %>; transform: translateY(<%= index * 5 %>px)translateX(<%= index * 5 %>px);"
     >
       <%= simple_form_for session_answer, remote: true, url: revision_session_session_answers_path(@revision_session) do |f| %>
         <%= f.input :session_concept_id, :as => :hidden, input_html: { name: 'session_answer[session_concept_id]', value: session_answer.revision_session_concept.id } %>
 
-        <h4>#<%= index + 1 %>: <%= session_answer.revision_session_concept.concept.prompt %></h4>
+        <h4><%= session_answer.revision_session_concept.concept.prompt %></h4>
 
         <div class="row">
-          <div class="col-md-6">
-            <%= f.input :response, input_html: { name: 'session_answer[response]', class: 'js-session-answer-response' } %>
-            <button class="js-check-answer-btn" type="button">Check answer</button>
+          <div class="col-md-6 revision-card-question">
+            <%= f.input :response, input_html: { name: 'session_answer[response]', class: 'js-session-answer-response' }, label: false %>
+            <button class="js-check-answer-btn revision-card-check-answer-button btn btn-primary" type="button">Check answer</button>
           </div>
-          <div class="col-md-6 d-none js-revision-answer">
-            <%= simple_format(session_answer.revision_session_concept.concept.content) %>
+          <div class="col-md-6 revision-card-answer">
+            <div class="d-none js-revision-answer">
+              <%= simple_format(session_answer.revision_session_concept.concept.content) %>
+            </div>
           </div>
         </div>
-        <div class="js-revision-action-toolbar d-none">
-          <%= f.button :submit, name: "session_answer[correct]",value: "true"%>
-          <%= f.button :submit, name: "session_answer[correct]",value: "false"%>
+        <div class="js-revision-action-toolbar revision-card-toolbar d-none">
+          <div class="revision-card-toolbar-overlay">
+            <%= f.button :button, name: "session_answer[correct]",value: "true" do %>
+              <i class="fa fa-check"></i>
+            <% end %>
+            <%= f.button :button, name: "session_answer[correct]",value: "false" do %>
+              <i class="fa fa-times"></i>
+            <% end %>
+          </div>
         </div>
       <% end %>
     </div>

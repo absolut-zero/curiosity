@@ -65,7 +65,7 @@ class RevisionSession {
 
     if (this.currentStep < this.cardEls.length) {
       const newCurrentCard = this.cardEls[this.currentStep];
-      newCurrentCard.style.transform = 'rotate(0)';
+      // newCurrentCard.style.transform = 'rotate(0)';
     }
     else {
       this.finalCardEl.classList.remove('d-none');
