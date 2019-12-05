@@ -2,6 +2,6 @@
 
 meta_product_name: "Curiosity"
 meta_title: "Curiosity - Learn Stuff!"
-meta_description: "Now with 100% more algorithm ;)"
+meta_description: "They know enough who know how to learn."
 meta_image: "cover.jpg" # should exist in `app/assets/images/`
 twitter_account: "@curiosity_app"   # required for Twitter Cards
