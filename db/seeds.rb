@@ -365,14 +365,6 @@ con_js2 = Concept.create!(
   document: doc_js
   )
 
-con_js3 = Concept.create!(
-  prompt: "What is the naming convention for JS variables?",
-  content: "// lowerCamelCase
-
-const firstName = \"Ameya\";",
-  document: doc_js
-  )
-
 p "Tagging concepts..."
 
 con_business_ethics1.tags << [tag_law, tag_ethics]
@@ -390,8 +382,6 @@ con_evolution2.tags << [tag_genetics, tag_biology]
 con_js1.tags << [tag_javascript, tag_webdev]
 
 con_js2.tags << [tag_javascript, tag_webdev]
-
-con_js3.tags << [tag_javascript, tag_webdev]
 
 p "Creating new revision sessions from documents..."
 
