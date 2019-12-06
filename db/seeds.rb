@@ -298,6 +298,10 @@ tag_javascript = Tag.create!(
   name: "Javascript"
   )
 
+tag_webdev = Tag.create!(
+  name: "Web Dev"
+  )
+
 p "Creating new concepts..."
 
 con_business_ethics1 = Concept.create!(
@@ -340,6 +344,35 @@ con_evolution2 = Concept.create!(
   document: doc_evolution
   )
 
+con_js1 = Concept.create!(
+  prompt: "What are the basic types in JS?",
+  content: "\"Hello Le Wagon\"      // string
+  'Hello Le Wagon'      // string
+
+  42                    // number (includes floats & ints)
+  3.14                  // number (includes floats & ints)
+
+  true || false         // boolean",
+  document: doc_js
+  )
+
+con_js2 = Concept.create!(
+  prompt: "What data structures are there in JS?",
+  content: "{ key: 'value' };     // Object
+  { 'key': 'value' };   // Object (the exact same)
+
+  [1, 2, true, 'hi'];   // Array",
+  document: doc_js
+  )
+
+con_js3 = Concept.create!(
+  prompt: "What is the naming convention for JS variables?",
+  content: "// lowerCamelCase
+
+const firstName = \"Ameya\";",
+  document: doc_js
+  )
+
 p "Tagging concepts..."
 
 con_business_ethics1.tags << [tag_law, tag_ethics]
@@ -354,9 +387,17 @@ con_evolution1.tags << [tag_genetics, tag_biology]
 
 con_evolution2.tags << [tag_genetics, tag_biology]
 
+con_js1.tags << [tag_javascript, tag_webdev]
+
+con_js2.tags << [tag_javascript, tag_webdev]
+
+con_js3.tags << [tag_javascript, tag_webdev]
+
 p "Creating new revision sessions from documents..."
 
 RevisionSessionGenerator.generate_from_document(doc_alleles, user, Date.parse("05-12-2019"))
+
+RevisionSessionGenerator.generate_from_document(doc_js, user, Date.parse("06-12-2019"))
 
 RevisionSessionGenerator.generate_from_document(doc_evolution, user, Date.parse("11-12-2019"))
 

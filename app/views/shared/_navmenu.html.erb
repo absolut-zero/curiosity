@@ -47,7 +47,7 @@
       <% end %>
     </li>
      <li class="nav-item">
-      <%= link_to revision_sessions_path, { :class=>"nav-link font-weight-bold" } do %>
+      <%= link_to revision_sessions_path, { :class=>"nav-link font-weight-bold", :style=>"padding-right:2px" } do %>
         <i class="fas fa-glasses mr-3 fa-fw"></i><span style="margin-left: -1px;"> Revision Schedule</span><i class="fas notification-icon ml-4" ><span class="notification-number font-weight-weight-bold" ><%= RevisionSession.todays_sessions(current_user) %></span></i>
       <% end %>
     </li>
